@@ -30,9 +30,9 @@ What are the observations and variables in these two datasets?
 ```{r}
 # The pre exercise code runs code to initialize the user's workspace.
 import pandas as pd
-messy = pd.read_csv('datasets/messy.csv', sep=',')
 df1 = pd.read_csv('datasets/df1.csv', sep = ',')
 df2 = pd.read_csv('datasets/df2.csv', sep = ',')
+messy = pd.read_csv('datasets/messy.csv', sep=',')
 ```
 
 *** =sct
@@ -40,65 +40,51 @@ df2 = pd.read_csv('datasets/df2.csv', sep = ',')
 # SCT written with pythonwhat: https://github.com/datacamp/pythonwhat/wiki
 
 msg_bad = "That is not correct!"
-msg_success = "Exactly! The correlation is very weak though."
+msg_success = "Exactly!"
 test_mc(4, [msg_bad, msg_bad, msg_bad, msg_success])
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:1 key:431ad8bd98
-## Plot the movies yourself
+## Melt
 
-Do you remember the plot of the last exercise? Let's make an even cooler plot!
-
-A dataset of movies, `movies`, is available in the workspace.
+In df2, avg\_free, avg\_reduced, and avg\_full, each representing the number of students that pay for a particular meal plan on an average day, are three different observations and should be in three different rows. A great tool to achieve this is the melt function in pandas package. Its basic syntax is `df.melt(df, id_vars=l)`, where df is the name of the dataframe we're dealing with and l is a list of all the columns that we want to maintain. All the other columns will be "molten" together in different rows. To get a more concrete idea, try melt yourself!
 
 *** =instructions
-- The first function, `np.unique()`, uses the `unique()` function of the `numpy` package to get integer values for the movie genres. You don't have to change this code, just have a look!
-- Import `pyplot` in the `matplotlib` package. Set an alias for this import: `plt`.
-- Use `plt.scatter()` to plot `movies.runtime` onto the x-axis, `movies.rating` onto the y-axis and use `ints` for the color of the dots. You should use the first and second positional argument, and the `c` keyword.
-- Show the plot using `plt.show()`.
+- Import `pandas` as `pd`
+- Melt df2! We want to maintain the `year` column and melt all the rest.
 
 *** =hint
-- You don't have to program anything for the first instruction, just take a look at the first line of code.
-- Use `import ___ as ___` to import `matplotlib.pyplot` as `plt`.
-- Use `plt.scatter(___, ___, c = ___)` for the third instruction.
-- You'll always have to type in `plt.show()` to show the plot you created.
+- `id_vars` should be `['year']`
 
 *** =pre_exercise_code
 ```{python}
 import pandas as pd
-movies = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv")
-
-import numpy as np
+df2 = pd.read_csv('datasets/df2.csv', sep = ',')
 ```
 
 *** =sample_code
 ```{python}
-# Get integer values for genres
-_, ints = np.unique(movies.genre, return_inverse = True)
+# Import pandas as pd
 
-# Import matplotlib.pyplot
+# Melt df2 into df2_tidy
+df2_tidy = 
 
-
-# Make a scatter plot: runtime on  x-axis, rating on y-axis and set c to ints
-
-
-# Show the plot
+# print df2_tidy
+print(df2_tidy)
 
 ```
 
 *** =solution
 ```{python}
-# Get integer values for genres
-_, ints = np.unique(movies.genre, return_inverse = True)
+# Import pandas as pd
+import pandas as pd
 
-# Import matplotlib.pyplot
-import matplotlib.pyplot as plt
+# Melt df2 into df2_tidy
+df2_tidy = pd.melt(df2, id_vars=['year'])
 
-# Make a scatter plot: runtime on  x-axis, rating on y-axis and set c to ints
-plt.scatter(movies.runtime, movies.rating, c=ints)
+# print df2_tidy
+print(df2_tidy)
 
-# Show the plot
-plt.show()
 ```
 
 *** =sct
