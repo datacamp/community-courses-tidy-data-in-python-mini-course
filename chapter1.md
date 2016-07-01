@@ -110,7 +110,7 @@ test_function("matplotlib.pyplot.show")
 success_msg("Great work!")
 ```
 
---- type:NormalExercise lang:python xp:100 skills:1 key:431ad8bd98
+--- type:NormalExercise lang:python xp:100 skills:1 key:3be71779cd
 ## Renaming Columns
 
 Did you see how easy it was? In one command you already tidied up your dataset! Now we just need a bit more decorations. Change the column names with pandas' rename function. Its syntax is `df.rename(columns = {'$column1':'column1','$column2':'column2'}, inplace = True)`, where `$column 1`, `$column 2` etc. are original column names and `column 1`, `column 2` etc. are new column names.
@@ -207,7 +207,7 @@ msg_success = "Exactly! The correlation is very weak though."
 test_mc(4, [msg_bad, msg_bad, msg_bad, msg_success])
 ```
 
---- type:NormalExercise lang:python xp:100 skills:1 key:431ad8bd98
+--- type:NormalExercise lang:python xp:100 skills:1 key:5d0f6f3efd
 ## Deal with it!
 
 The three columns, `black`, `blue`, and `brown`, essentially represent the same variable: eye color. It would make much more sense to merge them into one column. Use melt to do it!
@@ -275,7 +275,7 @@ test_function("matplotlib.pyplot.show")
 success_msg("Great work!")
 ```
 
---- type:NormalExercise lang:python xp:100 skills:1 key:431ad8bd98
+--- type:NormalExercise lang:python xp:100 skills:1 key:99639b8387
 ## Further Cleaning
 
 What did you notice? Why the three columns melt into one, the dataset still has some problems. First of all, when we know Elizabeth has brown eyes, it's redundant to keep record that she doesn't have blue or black eyes. Therefore, what we waht to do is to get rid of all rows whose value in the `value` column is 0. It is very easy to do so in pandas, just use the following command:
