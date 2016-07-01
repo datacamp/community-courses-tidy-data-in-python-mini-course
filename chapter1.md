@@ -66,6 +66,7 @@ df2 = pd.read_csv('datasets/df2.csv', sep = ',')
 ```{python}
 # Import pandas as pd
 
+
 # Melt df2 into df2_tidy
 df2_tidy = 
 
@@ -109,19 +110,83 @@ test_function("matplotlib.pyplot.show")
 success_msg("Great work!")
 ```
 
+--- type:NormalExercise lang:python xp:100 skills:1 key:431ad8bd98
+## Renaming Columns
+
+Did you see how easy it was? In one command you already tidied up your dataset! Now we just need a bit more decorations. Change the column names with pandas' rename function. Its syntax is `df.rename(columns = {'$column1':'column1','$column2':'column2'}, inplace = True)`, where `$column 1`, `$column 2` etc. are original column names and `column 1`, `column 2` etc. are new column names.
+
+
+*** =instructions
+- `pandas` is already imported
+- Rename the `variable` of df2_tidy to `meal plan` and `value` to `number` 
+
+*** =hint
+- `columns` should be `{'variable':'meal plan','value':'number'}`
+
+*** =pre_exercise_code
+```{python}
+import pandas as pd
+df2 = pd.read_csv('datasets/df2.csv', sep = ',')
+df2_tidy = pd.melt(df2, id_vars=['year'])
+```
+
+*** =sample_code
+```{python}
+# Rename the columns of df2_tidy
+
+
+# print out df2_tidy again
+print(df2_tidy)
+
+```
+
+*** =solution
+```{python}
+# Rename the columns of df2_tidy
+df2_tidy.rename(columns = {'variable':'lunch option','value':'people'}, inplace = True)
+
+# print out df2_tidy again
+print(df2_tidy)
+
+```
+
+*** =sct
+```{python}
+# SCT written with pythonwhat: https://github.com/datacamp/pythonwhat/wiki
+
+test_function("numpy.unique",
+              not_called_msg = "Don't remove the call of `np.unique` to define `ints`.",
+              incorrect_msg = "Don't change the call of `np.unique` to define `ints`.")
+
+test_object("ints",
+            undefined_msg = "Don't remove the definition of the predefined `ints` object.",
+            incorrect_msg = "Don't change the definition of the predefined `ints` object.")
+
+test_import("matplotlib.pyplot", same_as = True)
+
+test_function("matplotlib.pyplot.scatter",
+              incorrect_msg = "You didn't use `plt.scatter()` correctly, have another look at the instructions.")
+
+test_function("matplotlib.pyplot.show")
+
+success_msg("Great work!")
+```
+
+
+
 --- type:MultipleChoiceExercise lang:python xp:50 skills:1 key:d40684ea0d
 ## More messiness
 
-Have a look at the plot that showed up in the viewer to the right. Which type of movies have the worst rating assigned to them?
+Great job! Now that you're familier with messy and tidy data, take a look at another dataset. Enter `eye_color` in your shell. What problem does this dataset have?
 
 *** =instructions
-- Long movies, clearly
-- Short movies, clearly
-- Long movies, but the correlation seems weak
-- Short movies, but the correlation seems weak
+- It violates rule #1: there are several columns that represent the same variable
+- It violates rule #1: there are several variables represented in the same column
+- It violates rule #2: there are several rows that represent the same observation
+- It violates rule #2: there are several observations represented in the same row
 
 *** =hint
-Have a look at the plot. Do you see a trend in the dots?
+Try again!
 
 *** =pre_exercise_code
 ```{r}
@@ -129,12 +194,8 @@ Have a look at the plot. Do you see a trend in the dots?
 # You can use it to load packages, initialize datasets and draw a plot in the viewer
 
 import pandas as pd
-import matplotlib.pyplot as plt
+eye_color = pd.read_csv('datasets/eye_color.csv',sep=',')
 
-movies = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv")
-
-plt.scatter(movies.runtime, movies.rating)
-plt.show()
 ```
 
 *** =sct
@@ -145,3 +206,146 @@ msg_bad = "That is not correct!"
 msg_success = "Exactly! The correlation is very weak though."
 test_mc(4, [msg_bad, msg_bad, msg_bad, msg_success])
 ```
+
+--- type:NormalExercise lang:python xp:100 skills:1 key:431ad8bd98
+## Deal with it!
+
+The three columns, `black`, `blue`, and `brown`, essentially represent the same variable: eye color. It would make much more sense to merge them into one column. Use melt to do it!
+
+*** =instructions
+- Melt `black`, `blue`, and `brown` into one column
+- Rename the `variable` column to `eye color`
+
+*** =hint
+- The basic syntax for melt is `df.melt(df, id_vars=l)`
+- The basic syntax for rename is  `df.rename(columns = {'$column1':'column1','$column2':'column2'}, inplace = True)`
+
+
+*** =pre_exercise_code
+```{python}
+import pandas as pd
+eye_color = pd.read_csv('datasets/eye_color.csv',sep=',')
+```
+
+*** =sample_code
+```{python}
+# Melt the `black`, `blue` and `brown` columns of eye_color and save it to eye_color_tidy
+eye_color_tidy = 
+
+# Rename the `variable` column
+
+
+# print out eye_color_tidy
+print(eye_color_tidy)
+
+```
+
+*** =solution
+```{python}
+# Melt the `black`, `blue` and `brown` columns of eye_color and save it to eye_color_tidy
+eye_color_tidy = pd.melt(eye_color, id_vars = ['Name'])
+
+# Rename the `variable` column
+eye_color_tidy.rename(columns = {'variable':'eye color'}, inplace = True)
+
+# print out eye_color_tidy
+print(eye_color_tidy)
+
+```
+
+*** =sct
+```{python}
+# SCT written with pythonwhat: https://github.com/datacamp/pythonwhat/wiki
+
+test_function("numpy.unique",
+              not_called_msg = "Don't remove the call of `np.unique` to define `ints`.",
+              incorrect_msg = "Don't change the call of `np.unique` to define `ints`.")
+
+test_object("ints",
+            undefined_msg = "Don't remove the definition of the predefined `ints` object.",
+            incorrect_msg = "Don't change the definition of the predefined `ints` object.")
+
+test_import("matplotlib.pyplot", same_as = True)
+
+test_function("matplotlib.pyplot.scatter",
+              incorrect_msg = "You didn't use `plt.scatter()` correctly, have another look at the instructions.")
+
+test_function("matplotlib.pyplot.show")
+
+success_msg("Great work!")
+```
+
+--- type:NormalExercise lang:python xp:100 skills:1 key:431ad8bd98
+## Further Cleaning
+
+What did you notice? Why the three columns melt into one, the dataset still has some problems. First of all, when we know Elizabeth has brown eyes, it's redundant to keep record that she doesn't have blue or black eyes. Therefore, what we waht to do is to get rid of all rows whose value in the `value` column is 0. It is very easy to do so in pandas, just use the following command:
+
+`df = df[df.column == value]`
+
+where `column` is the name of the column we are examining and `value` is the value we want to keep. This step will give us one row for each girl that tells us only her correct eye color. Now the `value` column is no longer necessary and let's delete it:
+
+`del df['column1', 'column2'...]`
+
+This command does exactly what we want.
+
+
+*** =instructions
+- Filter the dataset to keep only the rows where `value` is 1 
+- Delete the `value` column
+
+*** =hint
+Take a closer look at the syntax of the two commands!
+
+*** =pre_exercise_code
+```{python}
+import pandas as pd
+eye_color = pd.read_csv('datasets/eye_color.csv',sep=',')
+eye_color_tidy = pd.melt(eye_color, id_vars = ['Name'])
+```
+
+*** =sample_code
+```{python}
+# Filter eye_color_tidy 
+eye_color_tidy = 
+
+# Delete the `value` column
+
+
+# print eye_color_tidy again
+print(eye_color_tidy)
+```
+
+*** =solution
+```{python}
+# Filter eye_color_tidy 
+eye_color_tidy = eye_color_tidy[eye_color_tidy.value == 1]
+
+# Delete the `value` column
+del eye_color_tidy['value']
+
+# print eye_color_tidy again
+print(eye_color_tidy)
+```
+
+*** =sct
+```{python}
+# SCT written with pythonwhat: https://github.com/datacamp/pythonwhat/wiki
+
+test_function("numpy.unique",
+              not_called_msg = "Don't remove the call of `np.unique` to define `ints`.",
+              incorrect_msg = "Don't change the call of `np.unique` to define `ints`.")
+
+test_object("ints",
+            undefined_msg = "Don't remove the definition of the predefined `ints` object.",
+            incorrect_msg = "Don't change the definition of the predefined `ints` object.")
+
+test_import("matplotlib.pyplot", same_as = True)
+
+test_function("matplotlib.pyplot.scatter",
+              incorrect_msg = "You didn't use `plt.scatter()` correctly, have another look at the instructions.")
+
+test_function("matplotlib.pyplot.show")
+
+success_msg("Great work!")
+```
+
