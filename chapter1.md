@@ -22,6 +22,7 @@ Have a look at the plot. Do you see a trend in the dots?
 ```{r}
 # The pre exercise code runs code to initialize the user's workspace.
 import pandas as pd
+import numpy as np
 messy = pd.DataFrame({'First' : ['John', 'Jane', 'Mary'], 
                       'Last' : ['Smith', 'Doe', 'Johnson'], 
                       'Treatment A' : [np.nan, 16, 3], 
