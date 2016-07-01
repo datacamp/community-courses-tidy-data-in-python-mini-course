@@ -1,32 +1,38 @@
 ---
 title       : Tidy Data in Python
-description : This is cool!
+description : It is often said that data scientists spend only 20% of their time analyzing their data, and 80% of time cleaning the data. Indeed, maintaining a tidy, easy-to-use dataset is crucial in our age of big data. In Tidy Data, veteran statistician Hadley Wickham gives standards of tidy and messy data so that all data scientists can keep their work organized. In this mini-course, you'll learn to transform messy datasets to tidy datasets using the pandas package in python. Let's get started!
+
 attachments :
-  slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
 --- type:MultipleChoiceExercise lang:python xp:50 skills:1 key:7ad68bd87f
 ## Tidy Data and Messy Data
 
-Have a look at the plot that showed up in the viewer to the right. Which type of movies have the worst rating assigned to them?
+What exactly marks the difference between tidy data and messy data? It is not only how organized and intuitive the datasets look in our human eyes, but also how easily and efficiently they can be processed by computers. In Tidy Data, Hadley Wickham proposed three standards for tidy data:
+
+1. Each variable forms a column
+2. Each observation forms a row
+3. Each type of observation forms a unit
+
+In this course, we'll focus on the first two rules and show you how we can use pandas to deal with datasets violating them. To get started, enter "messy" in the ipython shell to see a preloaded dataset. Observe its struture in comparison with Wickham's rules. This dataset is messy because it violates rule #2: it combines Treatment A and Treatment B, two distinct observations, in a single row. While this may look more succinct, it would, for instance, take unnecessary time and space for a data scientist that only wants to study Treatment A. 
+
+Now let's look at two more datasets. Enter "df1" and "df2" in your shell to check out two other preloaded datasets. Which one of them is messy, and why?
 
 *** =instructions
-- Long movies, clearly
-- Short movies, clearly
-- Long movies, but the correlation seems weak
-- Short movies, but the correlation seems weak
-
+- df1 is messy because it violates rule #1
+- df1 is messy because it violates rule #2
+- df2 is messy because it violates rule #1
+- df2 is messy because it violates rule #2
+ 
 *** =hint
-Have a look at the plot. Do you see a trend in the dots?
+What are the observations and variables in these two datasets?
 
 *** =pre_exercise_code
 ```{r}
 # The pre exercise code runs code to initialize the user's workspace.
 import pandas as pd
-import numpy as np
-messy = pd.DataFrame({'First' : ['John', 'Jane', 'Mary'], 
-                      'Last' : ['Smith', 'Doe', 'Johnson'], 
-                      'Treatment A' : [np.nan, 16, 3], 
-                      'Treatment B' : [2, 11, 1]})
+messy = pd.read_csv('datasets/messy.csv', sep=',')
+df1 = pd.read_csv('datasets/df1.csv', sep = ',')
+df2 = pd.read_csv('datasets/df2.csv', sep = ',')
 ```
 
 *** =sct
