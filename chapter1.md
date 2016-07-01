@@ -116,7 +116,7 @@ test_function("matplotlib.pyplot.show")
 success_msg("Great work!")
 ```
 
---- type:MultipleChoiceExercise lang:python xp:50 skills:1 key:7ad68bd87f
+--- type:MultipleChoiceExercise lang:python xp:50 skills:1 key:d40684ea0d
 ## More messiness
 
 Have a look at the plot that showed up in the viewer to the right. Which type of movies have the worst rating assigned to them?
