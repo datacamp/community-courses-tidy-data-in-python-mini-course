@@ -30,9 +30,10 @@ What are the observations and variables in these two datasets?
 ```{r}
 # The pre exercise code runs code to initialize the user's workspace.
 import pandas as pd
-df1 = pd.read_csv('datasets/df1.csv', sep = ',')
-df2 = pd.read_csv('datasets/df2.csv', sep = ',')
-messy = pd.read_csv('datasets/messy.csv', sep=',')
+url1 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1273/datasets/df1.csv'
+df1 = pd.read_csv(url1, sep = ',')
+#df2 = pd.read_csv('datasets/df2.csv', sep = ',')
+#messy = pd.read_csv('datasets/messy.csv', sep=',')
 ```
 
 *** =sct
