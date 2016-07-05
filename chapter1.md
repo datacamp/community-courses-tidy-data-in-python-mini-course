@@ -281,7 +281,7 @@ import pandas as pd
 url4 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1274/datasets/eyes.csv'
 eyes = pd.read_csv(url4,sep=',')
 eyes_tidy = pd.melt(eyes, id_vars = ['Name'])
-eyes_tidy.rename(columns = {'variable':'Eye Color'}, inplace = True)
+#eyes_tidy.rename(columns = {'variable':'Eye Color'}, inplace = True)
 ```
 
 *** =sample_code
@@ -290,7 +290,7 @@ eyes_tidy.rename(columns = {'variable':'Eye Color'}, inplace = True)
 import pandas as pd
 
 # Filter eye_color_tidy 
-eyes_tidy = 
+eyes_tidy = ____
 
 # Delete the `value` column
 
