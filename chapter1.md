@@ -273,6 +273,7 @@ import pandas as pd
 url4 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1273/datasets/eye_color.csv'
 eye_color = pd.read_csv(url4,sep=',')
 eye_color_tidy = pd.melt(eye_color, id_vars = ['Name'])
+eye_color_tidy.rename(columns = {'variable':'Eye Color'}, inplace = True)
 ```
 
 *** =sample_code
