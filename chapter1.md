@@ -114,6 +114,7 @@ Did you see how easy it was? In one command you already tidied up your dataset! 
 
 *** =pre_exercise_code
 ```{python}
+#import pandas
 import pandas as pd
 url2 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1274/datasets/df2.csv'
 df2 = pd.read_csv(url2, sep = ',')
@@ -135,6 +136,7 @@ print(df2_tidy)
 
 *** =solution
 ```{python}
+#import pandas
 import pandas as pd
 
 # Rename the columns of df2_tidy
