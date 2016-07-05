@@ -98,7 +98,7 @@ print(df2_tidy)
 ```{python}
 test_import("pandas")
 test_data_frame("df2_tidy", columns = ["year", "variable", "value"])
-#test_function(pd.melt, args=[df2, id_vars=['year'], 3])
+test_function(pd.melt, args=[df2, id_vars=['year'], 3])
 success_msg("Great job!")
 ```
 
