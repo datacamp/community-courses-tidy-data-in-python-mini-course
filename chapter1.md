@@ -54,9 +54,9 @@ test_mc(4, [msg_bad, msg_bad, msg_bad, msg_success])
 In df2, avg\_free, avg\_reduced, and avg\_full, each representing the number of students that pay for a particular meal plan on an average day, are three different observations and should be in three different rows. A great tool to achieve this is the melt function in pandas package. Its basic syntax is `pd.melt(df, id_vars=l)`, where `df` is the name of the dataframe we're dealing with and `l` is a list of all the columns that we want to maintain. All the other columns will be "molten" together in different rows. To get a more concrete idea, try melt yourself!
 
 *** =instructions
-- Import `pandas` as `pd`
+- Import `pandas` as `pd`.
 - Melt df2! We want to maintain the `year` column and melt all the rest.
-- Click "Submit" to print out the new dataframe
+- Click "Submit" to print out the new dataframe.
 
 *** =hint
 - `id_vars` should be `['year']`
@@ -109,7 +109,8 @@ Did you see how easy it was? In one command you already tidied up your dataset! 
 
 
 *** =instructions
-- Rename the `variable` of df2_tidy to `meal plan` and `value` to `number` 
+- Rename the `variable` of df2_tidy to `meal plan` and `value` to `number` .
+- Click "Submimt Answer" to print out the new dataframe.
 
 *** =hint
 - `columns` should be `{'variable':'meal plan','value':'number'}`
@@ -152,6 +153,7 @@ print(df2_tidy)
 ```{python}
 test_import("pandas")
 test_data_frame("df2_tidy", columns = ["year", "lunch option", "people"])
+test_function("df2_tidy.rename")
 success_msg("Great job!")
 ```
 
