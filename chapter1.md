@@ -211,6 +211,8 @@ eye_color = pd.read_csv(url4,sep=',')
 
 *** =sample_code
 ```{python}
+import pandas as pd
+
 # Melt the `black`, `blue` and `brown` columns of eye_color and save it to eye_color_tidy
 eye_color_tidy = 
 
@@ -224,6 +226,8 @@ print(eye_color_tidy)
 
 *** =solution
 ```{python}
+import pandas as pd
+
 # Melt the `black`, `blue` and `brown` columns of eye_color and save it to eye_color_tidy
 eye_color_tidy = pd.melt(eye_color, id_vars = ['Name'])
 
@@ -273,6 +277,8 @@ eye_color_tidy = pd.melt(eye_color, id_vars = ['Name'])
 
 *** =sample_code
 ```{python}
+import pandas as pd
+
 # Filter eye_color_tidy 
 eye_color_tidy = 
 
@@ -285,6 +291,8 @@ print(eye_color_tidy)
 
 *** =solution
 ```{python}
+import pandas as pd
+
 # Filter eye_color_tidy 
 eye_color_tidy = eye_color_tidy[eye_color_tidy.value == 1]
 
