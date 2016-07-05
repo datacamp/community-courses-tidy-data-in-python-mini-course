@@ -306,7 +306,7 @@ print(eye_color_tidy)
 *** =sct
 ```{python}
 test_import("pandas")
-test_function("del", args=[eye_color_tidy['value']])
+#test_function("del", args=[eye_color_tidy['value']])
 #test_data_frame("eye_color_tidy", columns = ["Name", "Eye Color"])
 success_msg("Great job!")
 ```
