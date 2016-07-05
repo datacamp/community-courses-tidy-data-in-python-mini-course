@@ -301,6 +301,7 @@ print(eyes_tidy)
 
 *** =solution
 ```{python}
+#import pandas
 import pandas as pd
 
 # Filter eyes_tidy 
