@@ -185,7 +185,7 @@ eye_color = pd.read_csv(url4,sep=',')
 
 msg_bad = "That is not correct!"
 msg_success = "Exactly!"
-test_mc(1, [msg_bad, msg_bad, msg_bad, msg_success])
+test_mc(1, [msg_success, msg_bad, msg_bad, msg_bad])
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:1 key:5d0f6f3efd
