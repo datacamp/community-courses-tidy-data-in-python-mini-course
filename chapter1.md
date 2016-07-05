@@ -217,30 +217,30 @@ eyes = pd.read_csv(url4,sep=',')
 
 *** =sample_code
 ```{python}
-#import pandas
+# Import pandas
 import pandas as pd
 
-# Melt the `black`, `blue` and `brown` columns of `eyes` and save it to new dataframe: `eyes_tidy`
-eyes_tidy = 
+# Melt the black, blue, and brown columns of eyes and save it to new dataframe: eyes_tidy
+eyes_tidy = ____
 
 # Rename the `variable` column
+eyes_tidy.rename(columns={'variable': 'Eye Color'}, inplace=True)
 
-
-# print out eyes_tidy
+# print out eye_color_tidy
 print(eyes_tidy)
 
 ```
 
 *** =solution
 ```{python}
-#import pandas
+# Import pandas
 import pandas as pd
 
-# Melt the `black`, `blue` and `brown` columns of `eyes` and save it to new dataframe: `eyes_tidy`
-eyes_tidy = pd.melt(eyes, id_vars = ['Name'])
+# Melt the black, blue, and brown columns of eyes and save it to new dataframe: eyes_tidy
+eyes_tidy = pd.melt(eyes, id_vars=['Name'])
 
 # Rename the `variable` column
-eyes_tidy.rename(columns = {'variable':'Eye Color'}, inplace = True)
+eyes_tidy.rename(columns={'variable': 'Eye Color'}, inplace=True)
 
 # print out eye_color_tidy
 print(eyes_tidy)
