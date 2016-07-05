@@ -13,9 +13,9 @@ What exactly marks the difference between tidy data and messy data? It is not on
 2. Each observation forms a row
 3. Each type of observation forms a unit
 
-In this course, we'll focus on the first two rules and show you how we can use pandas to deal with datasets violating them. To get started, enter "messy" in the ipython shell to see a preloaded dataset. Observe its struture in comparison with Wickham's rules. This dataset is messy because it violates rule #2: it combines Treatment A and Treatment B, two distinct observations, in a single row. While this may look more succinct, it would, for instance, take unnecessary time and space for a data scientist that only wants to study Treatment A. 
+In this course, we'll focus on the first two rules and show you how we can use pandas to deal with datasets violating them. To get started, execute `messy` in the IPython shell. This dataset, cited in Wickham's paper, shows the number of people who choose either of two treatments in a hospital. Observe its struture in comparison with Wickham's rules. This dataset is messy because it violates rule #2: it combines Treatment A and Treatment B, two distinct observations, in a single row. 
 
-Now let's look at two more datasets. Enter "df1" and "df2" in your shell to check out two other preloaded datasets. Which one of them is messy, and why?
+Now let's look at two more datasets. Enter "df1" and "df2" in your shell to check out two other preloaded datasets. The former shows the type and number of pets owneed by several co-workers, and the latter shows the number of students who choose a particular meal plan at a school. Which one of them is messy, and why?
 
 *** =instructions
 - df1 is messy because it violates rule #1
