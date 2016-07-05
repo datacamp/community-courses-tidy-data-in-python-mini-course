@@ -307,8 +307,9 @@ print(eye_color_tidy)
 *** =sct
 ```{python}
 test_import("pandas")
-#test_function("del")
+test_function("del")
 test_data_frame("eye_color_tidy", columns = ["Name", "Eye Color"])
+test_object("eye_color_tidy.shape", eq_condition="equivalent")
 success_msg("Great job!")
 ```
 
