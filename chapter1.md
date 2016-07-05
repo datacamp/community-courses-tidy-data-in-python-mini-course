@@ -311,7 +311,7 @@ print(eyes_tidy)
 ```{python}
 test_import("pandas")
 test_data_frame("eyes_tidy", columns = ["Name", "Eye Color"])
-test_object("eye_color_tidy.shape", eq_condition="equivalent")
+test_object("eye_tidy.shape", eq_condition="equivalent")
 success_msg("Great job!")
 ```
 
