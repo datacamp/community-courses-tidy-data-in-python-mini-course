@@ -279,7 +279,7 @@ Take a closer look at the syntax of the two commands!
 ```{python}
 import pandas as pd
 url4 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1274/datasets/eyes.csv'
-eyes_tidy = pd.read_csv(url4,sep=',')
+eyes = pd.read_csv(url4,sep=',')
 eyes_tidy = pd.melt(eyes, id_vars = ['Name'])
 eyes_tidy.rename(columns = {'variable':'Eye Color'}, inplace = True)
 ```
