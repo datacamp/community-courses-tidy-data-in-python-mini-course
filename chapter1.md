@@ -72,7 +72,7 @@ df2 = pd.read_csv(url2, sep = ',')
 # Import pandas as pd
 
 
-# Melt df2 into df2_tidy
+# Melt df2 into new dataframe: df2_tidy
 df2_tidy = ____
 
 # print df2_tidy
@@ -85,7 +85,7 @@ print(df2_tidy)
 # Import pandas as pd
 import pandas as pd
 
-# Melt df2 into df2_tidy
+# Melt df2 into new dataframe: df2_tidy
 df2_tidy = pd.melt(df2, id_vars=['year'])
 
 # print df2_tidy
@@ -217,7 +217,7 @@ eyes = pd.read_csv(url4,sep=',')
 #import pandas
 import pandas as pd
 
-# Melt the `black`, `blue` and `brown` columns of `eyes` and save it to `eyes_tidy`
+# Melt the `black`, `blue` and `brown` columns of `eyes` and save it to new dataframe: `eyes_tidy`
 eyes_tidy = 
 
 # Rename the `variable` column
@@ -230,9 +230,10 @@ print(eyes_tidy)
 
 *** =solution
 ```{python}
+#import pandas
 import pandas as pd
 
-# Melt the `black`, `blue` and `brown` columns of `eyes` and save it to `eyes_tidy`
+# Melt the `black`, `blue` and `brown` columns of `eyes` and save it to new dataframe: `eyes_tidy`
 eyes_tidy = pd.melt(eyes, id_vars = ['Name'])
 
 # Rename the `variable` column
