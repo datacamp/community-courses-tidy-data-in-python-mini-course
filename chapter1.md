@@ -116,7 +116,8 @@ Did you see how easy it was? In one command you already tidied up your dataset! 
 *** =pre_exercise_code
 ```{python}
 import pandas as pd
-df2 = pd.read_csv('datasets/df2.csv', sep = ',')
+url2 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1273/datasets/df2.csv'
+df2 = pd.read_csv(url2, sep = ',')
 df2_tidy = pd.melt(df2, id_vars=['year'])
 ```
 
@@ -142,24 +143,9 @@ print(df2_tidy)
 
 *** =sct
 ```{python}
-# SCT written with pythonwhat: https://github.com/datacamp/pythonwhat/wiki
-
-test_function("numpy.unique",
-              not_called_msg = "Don't remove the call of `np.unique` to define `ints`.",
-              incorrect_msg = "Don't change the call of `np.unique` to define `ints`.")
-
-test_object("ints",
-            undefined_msg = "Don't remove the definition of the predefined `ints` object.",
-            incorrect_msg = "Don't change the definition of the predefined `ints` object.")
-
-test_import("matplotlib.pyplot", same_as = True)
-
-test_function("matplotlib.pyplot.scatter",
-              incorrect_msg = "You didn't use `plt.scatter()` correctly, have another look at the instructions.")
-
-test_function("matplotlib.pyplot.show")
-
-success_msg("Great work!")
+test_import("pandas")
+test_data_frame("df2_tidy", columns = ["year", "lunch option", "people"])
+success_msg("Great job!")
 ```
 
 
@@ -184,7 +170,8 @@ Try again!
 # You can use it to load packages, initialize datasets and draw a plot in the viewer
 
 import pandas as pd
-eye_color = pd.read_csv('datasets/eye_color.csv',sep=',')
+url4 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1273/datasets/eye_color.csv'
+eye_color = pd.read_csv(url4,sep=',')
 
 ```
 
@@ -204,7 +191,7 @@ The three columns, `black`, `blue`, and `brown`, essentially represent the same 
 
 *** =instructions
 - Melt `black`, `blue`, and `brown` into one column
-- Rename the `variable` column to `eye color`
+- Rename the `variable` column to `Eye Color`
 
 *** =hint
 - The basic syntax for melt is `df.melt(df, id_vars=l)`
@@ -214,7 +201,8 @@ The three columns, `black`, `blue`, and `brown`, essentially represent the same 
 *** =pre_exercise_code
 ```{python}
 import pandas as pd
-eye_color = pd.read_csv('datasets/eye_color.csv',sep=',')
+url4 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1273/datasets/eye_color.csv'
+eye_color = pd.read_csv(url4,sep=',')
 ```
 
 *** =sample_code
@@ -236,7 +224,7 @@ print(eye_color_tidy)
 eye_color_tidy = pd.melt(eye_color, id_vars = ['Name'])
 
 # Rename the `variable` column
-eye_color_tidy.rename(columns = {'variable':'eye color'}, inplace = True)
+eye_color_tidy.rename(columns = {'variable':'Eye Color'}, inplace = True)
 
 # print out eye_color_tidy
 print(eye_color_tidy)
@@ -245,24 +233,9 @@ print(eye_color_tidy)
 
 *** =sct
 ```{python}
-# SCT written with pythonwhat: https://github.com/datacamp/pythonwhat/wiki
-
-test_function("numpy.unique",
-              not_called_msg = "Don't remove the call of `np.unique` to define `ints`.",
-              incorrect_msg = "Don't change the call of `np.unique` to define `ints`.")
-
-test_object("ints",
-            undefined_msg = "Don't remove the definition of the predefined `ints` object.",
-            incorrect_msg = "Don't change the definition of the predefined `ints` object.")
-
-test_import("matplotlib.pyplot", same_as = True)
-
-test_function("matplotlib.pyplot.scatter",
-              incorrect_msg = "You didn't use `plt.scatter()` correctly, have another look at the instructions.")
-
-test_function("matplotlib.pyplot.show")
-
-success_msg("Great work!")
+test_import("pandas")
+test_data_frame("eye_color_tidy", columns = ["Name", "Eye Color", "value"])
+success_msg("Great job!")
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:1 key:99639b8387
@@ -289,7 +262,8 @@ Take a closer look at the syntax of the two commands!
 *** =pre_exercise_code
 ```{python}
 import pandas as pd
-eye_color = pd.read_csv('datasets/eye_color.csv',sep=',')
+url4 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1273/datasets/eye_color.csv'
+eye_color = pd.read_csv(url4,sep=',')
 eye_color_tidy = pd.melt(eye_color, id_vars = ['Name'])
 ```
 
@@ -319,23 +293,9 @@ print(eye_color_tidy)
 
 *** =sct
 ```{python}
-# SCT written with pythonwhat: https://github.com/datacamp/pythonwhat/wiki
-
-test_function("numpy.unique",
-              not_called_msg = "Don't remove the call of `np.unique` to define `ints`.",
-              incorrect_msg = "Don't change the call of `np.unique` to define `ints`.")
-
-test_object("ints",
-            undefined_msg = "Don't remove the definition of the predefined `ints` object.",
-            incorrect_msg = "Don't change the definition of the predefined `ints` object.")
-
-test_import("matplotlib.pyplot", same_as = True)
-
-test_function("matplotlib.pyplot.scatter",
-              incorrect_msg = "You didn't use `plt.scatter()` correctly, have another look at the instructions.")
-
-test_function("matplotlib.pyplot.show")
-
-success_msg("Great work!")
+test_import("pandas")
+test_function("del", args=[eye_color_tidy['value']])
+test_data_frame("eye_color_tidy", columns = ["Name", "Eye Color"])
+success_msg("Great job!")
 ```
 
