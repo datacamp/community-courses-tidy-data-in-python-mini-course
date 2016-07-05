@@ -30,9 +30,9 @@ What are the observations and variables in these two datasets?
 ```{r}
 # The pre exercise code runs code to initialize the user's workspace.
 import pandas as pd
-url1 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1273/datasets/df1.csv'
-url2 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1273/datasets/df2.csv'
-url3 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1273/datasets/messy.csv'
+url1 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1274/datasets/df1.csv'
+url2 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1274/datasets/df2.csv'
+url3 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1274/datasets/messy.csv'
 
 df1 = pd.read_csv(url1, sep = ',')
 df2 = pd.read_csv(url2, sep = ',')
@@ -63,7 +63,7 @@ In df2, avg\_free, avg\_reduced, and avg\_full, each representing the number of 
 *** =pre_exercise_code
 ```{python}
 import pandas as pd
-url2 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1273/datasets/df2.csv'
+url2 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1274/datasets/df2.csv'
 df2 = pd.read_csv(url2, sep = ',')
 ```
 
@@ -116,7 +116,7 @@ Did you see how easy it was? In one command you already tidied up your dataset! 
 *** =pre_exercise_code
 ```{python}
 import pandas as pd
-url2 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1273/datasets/df2.csv'
+url2 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1274/datasets/df2.csv'
 df2 = pd.read_csv(url2, sep = ',')
 df2_tidy = pd.melt(df2, id_vars=['year'])
 ```
@@ -174,7 +174,7 @@ Try again!
 # You can use it to load packages, initialize datasets and draw a plot in the viewer
 
 import pandas as pd
-url4 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1273/datasets/eye_color.csv'
+url4 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1274/datasets/eye_color.csv'
 eye_color = pd.read_csv(url4,sep=',')
 
 ```
@@ -205,7 +205,7 @@ The three columns, `black`, `blue`, and `brown`, essentially represent the same 
 *** =pre_exercise_code
 ```{python}
 import pandas as pd
-url4 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1273/datasets/eye_color.csv'
+url4 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1274/datasets/eye_color.csv'
 eye_color = pd.read_csv(url4,sep=',')
 ```
 
@@ -270,7 +270,7 @@ Take a closer look at the syntax of the two commands!
 *** =pre_exercise_code
 ```{python}
 import pandas as pd
-url4 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1273/datasets/eye_color.csv'
+url4 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1274/datasets/eye_color.csv'
 eye_color = pd.read_csv(url4,sep=',')
 eye_color_tidy = pd.melt(eye_color, id_vars = ['Name'])
 eye_color_tidy.rename(columns = {'variable':'Eye Color'}, inplace = True)
