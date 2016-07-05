@@ -1,35 +1,42 @@
 ---
-title       : Insert the chapter title here
-description : Insert the chapter description here
+title       : Tidy Data in Python
+description : It is often said that data scientists spend only 20% of their time analyzing their data, and 80% of time cleaning the data. Indeed, maintaining a tidy, easy-to-use dataset is crucial in our age of big data. In Tidy Data, veteran statistician Hadley Wickham gives standards of tidy and messy data so that all data scientists can keep their work organized. In this mini-course, you'll learn to transform messy datasets to tidy datasets using the pandas package in python. Let's get started!
+
 attachments :
-  slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
 --- type:MultipleChoiceExercise lang:python xp:50 skills:1 key:7ad68bd87f
 ## Tidy Data and Messy Data
 
-Have a look at the plot that showed up in the viewer to the right. Which type of movies have the worst rating assigned to them?
+What exactly marks the difference between tidy data and messy data? It is not only how organized and intuitive the datasets look in our human eyes, but also how easily and efficiently they can be processed by computers. In Tidy Data, Hadley Wickham proposed three standards for tidy data:
+
+1. Each variable forms a column
+2. Each observation forms a row
+3. Each type of observation forms a unit
+
+In this course, we'll focus on the first two rules and show you how we can use pandas to deal with datasets violating them. To get started, execute `messy` in the IPython shell. This dataset, cited in Wickham's paper, shows the number of people who choose either of two treatments in a hospital. Observe its struture in comparison with Wickham's rules. This dataset is messy because it violates rule #2: it combines Treatment A and Treatment B, two distinct observations, in a single row. 
+
+Now let's look at two more datasets. Enter "df1" and "df2" in your shell to check out two other preloaded datasets. The former shows the type and number of pets owneed by several co-workers, and the latter shows the number of students who choose a particular meal plan at a school. Which one of them is messy, and why?
 
 *** =instructions
-- Long movies, clearly
-- Short movies, clearly
-- Long movies, but the correlation seems weak
-- Short movies, but the correlation seems weak
-
+- df1 is messy because it violates rule #1
+- df1 is messy because it violates rule #2
+- df2 is messy because it violates rule #1
+- df2 is messy because it violates rule #2
+ 
 *** =hint
-Have a look at the plot. Do you see a trend in the dots?
+What are the observations and variables in these two datasets?
 
 *** =pre_exercise_code
 ```{r}
 # The pre exercise code runs code to initialize the user's workspace.
-# You can use it to load packages, initialize datasets and draw a plot in the viewer
-
 import pandas as pd
-import matplotlib.pyplot as plt
+url1 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1274/datasets/df1.csv'
+url2 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1274/datasets/df2.csv'
+url3 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1274/datasets/messy.csv'
 
-movies = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv")
-
-plt.scatter(movies.runtime, movies.rating)
-plt.show()
+df1 = pd.read_csv(url1, sep = ',')
+df2 = pd.read_csv(url2, sep = ',')
+messy = pd.read_csv(url3, sep=',')
 ```
 
 *** =sct
@@ -37,85 +44,274 @@ plt.show()
 # SCT written with pythonwhat: https://github.com/datacamp/pythonwhat/wiki
 
 msg_bad = "That is not correct!"
-msg_success = "Exactly! The correlation is very weak though."
+msg_success = "Exactly!"
 test_mc(4, [msg_bad, msg_bad, msg_bad, msg_success])
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:1 key:431ad8bd98
-## Plot the movies yourself
+## Using Melt to Tidy Data
 
-Do you remember the plot of the last exercise? Let's make an even cooler plot!
-
-A dataset of movies, `movies`, is available in the workspace.
+In df2, avg\_free, avg\_reduced, and avg\_full, each representing the number of students that pay for a particular meal plan on an average day, are three different observations and should be in three different rows. A great tool to achieve this is the melt function in pandas package. Its basic syntax is `pd.melt(df, id_vars=l)`, where `df` is the name of the dataframe we're dealing with and `l` is a list of all the columns that we want to maintain. All the other columns will be "molten" together in different rows. To get a more concrete idea, try melt yourself!
 
 *** =instructions
-- The first function, `np.unique()`, uses the `unique()` function of the `numpy` package to get integer values for the movie genres. You don't have to change this code, just have a look!
-- Import `pyplot` in the `matplotlib` package. Set an alias for this import: `plt`.
-- Use `plt.scatter()` to plot `movies.runtime` onto the x-axis, `movies.rating` onto the y-axis and use `ints` for the color of the dots. You should use the first and second positional argument, and the `c` keyword.
-- Show the plot using `plt.show()`.
+- Import `pandas` as `pd`
+- Melt df2! We want to maintain the `year` column and melt all the rest.
 
 *** =hint
-- You don't have to program anything for the first instruction, just take a look at the first line of code.
-- Use `import ___ as ___` to import `matplotlib.pyplot` as `plt`.
-- Use `plt.scatter(___, ___, c = ___)` for the third instruction.
-- You'll always have to type in `plt.show()` to show the plot you created.
+- `id_vars` should be `['year']`
 
 *** =pre_exercise_code
 ```{python}
 import pandas as pd
-movies = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv")
-
-import numpy as np
+url2 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1274/datasets/df2.csv'
+df2 = pd.read_csv(url2, sep = ',')
 ```
 
 *** =sample_code
 ```{python}
-# Get integer values for genres
-_, ints = np.unique(movies.genre, return_inverse = True)
-
-# Import matplotlib.pyplot
+# Import pandas as pd
 
 
-# Make a scatter plot: runtime on  x-axis, rating on y-axis and set c to ints
+# Melt df2 into df2_tidy
+df2_tidy = ____
 
-
-# Show the plot
+# print df2_tidy
+print(df2_tidy)
 
 ```
 
 *** =solution
 ```{python}
-# Get integer values for genres
-_, ints = np.unique(movies.genre, return_inverse = True)
+# Import pandas as pd
+import pandas as pd
 
-# Import matplotlib.pyplot
-import matplotlib.pyplot as plt
+# Melt df2 into df2_tidy
+df2_tidy = pd.melt(df2, id_vars=['year'])
 
-# Make a scatter plot: runtime on  x-axis, rating on y-axis and set c to ints
-plt.scatter(movies.runtime, movies.rating, c=ints)
+# print df2_tidy
+print(df2_tidy)
 
-# Show the plot
-plt.show()
 ```
 
 *** =sct
 ```{python}
+test_import("pandas")
+test_data_frame("df2_tidy", columns = ["year", "variable", "value"])
+success_msg("Great job!")
+```
+
+--- type:NormalExercise lang:python xp:100 skills:1 key:3be71779cd
+## Renaming Columns
+
+Did you see how easy it was? In one command you already tidied up your dataset! Now we just need a bit further fine-tuning. Change the column names with pandas' rename function. Its syntax is `df.rename(columns = {'$column1':'column1','$column2':'column2'}, inplace = True)`, where `$column 1`, `$column 2` etc. are original column names and `column 1`, `column 2` etc. are new column names.
+
+
+*** =instructions
+- Rename the `variable` of df2_tidy to `meal plan` and `value` to `number` 
+
+*** =hint
+- `columns` should be `{'variable':'meal plan','value':'number'}`
+
+*** =pre_exercise_code
+```{python}
+import pandas as pd
+url2 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1274/datasets/df2.csv'
+df2 = pd.read_csv(url2, sep = ',')
+df2_tidy = pd.melt(df2, id_vars=['year'])
+```
+
+*** =sample_code
+```{python}
+#import pandas
+import pandas as pd
+
+# Rename the columns of df2_tidy
+
+
+# print out df2_tidy again
+print(df2_tidy)
+
+```
+
+*** =solution
+```{python}
+import pandas as pd
+
+# Rename the columns of df2_tidy
+df2_tidy.rename(columns = {'variable':'lunch option','value':'people'}, inplace = True)
+
+# print out df2_tidy again
+print(df2_tidy)
+
+```
+
+*** =sct
+```{python}
+test_import("pandas")
+test_data_frame("df2_tidy", columns = ["year", "lunch option", "people"])
+success_msg("Great job!")
+```
+
+
+
+--- type:MultipleChoiceExercise lang:python xp:50 skills:1 key:d40684ea0d
+## More messiness
+
+Great job! Now that you're familier with messy and tidy data, take a look at another dataset. Exectue `eyes` in your shell. This dataset is about the eye colors of a few girls and whetehr they wear glasses. What problem does this dataset have?
+
+*** =instructions
+- It violates rule #1: there are several columns that represent the same variable
+- It violates rule #1: there are several variables represented in the same column
+- It violates rule #2: there are several rows that represent the same observation
+- It violates rule #2: there are several observations represented in the same row
+
+*** =hint
+Try again!
+
+*** =pre_exercise_code
+```{r}
+# The pre exercise code runs code to initialize the user's workspace.
+# You can use it to load packages, initialize datasets and draw a plot in the viewer
+
+import pandas as pd
+url4 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1274/datasets/eyes.csv'
+eyes = pd.read_csv(url4,sep=',')
+
+```
+
+*** =sct
+```{r}
 # SCT written with pythonwhat: https://github.com/datacamp/pythonwhat/wiki
 
-test_function("numpy.unique",
-              not_called_msg = "Don't remove the call of `np.unique` to define `ints`.",
-              incorrect_msg = "Don't change the call of `np.unique` to define `ints`.")
-
-test_object("ints",
-            undefined_msg = "Don't remove the definition of the predefined `ints` object.",
-            incorrect_msg = "Don't change the definition of the predefined `ints` object.")
-
-test_import("matplotlib.pyplot", same_as = True)
-
-test_function("matplotlib.pyplot.scatter",
-              incorrect_msg = "You didn't use `plt.scatter()` correctly, have another look at the instructions.")
-
-test_function("matplotlib.pyplot.show")
-
-success_msg("Great work!")
+msg_bad = "That is not correct!"
+msg_success = "Exactly!"
+test_mc(1, [msg_success, msg_bad, msg_bad, msg_bad])
 ```
+
+--- type:NormalExercise lang:python xp:100 skills:1 key:5d0f6f3efd
+## Deal with it!
+
+The three columns, `black`, `blue`, and `brown`, essentially represent the same variable: eye color. It would make much more sense to merge them into one column. Use melt to do it!
+
+*** =instructions
+- Melt `black`, `blue`, and `brown` into one column
+- Rename the `variable` column to `Eye Color`
+
+*** =hint
+- The basic syntax for melt is `df.melt(df, id_vars=l)`
+- The basic syntax for rename is  `df.rename(columns = {'$column1':'column1','$column2':'column2'}, inplace = True)`
+- `id_vars` should be `['Name']`
+
+
+*** =pre_exercise_code
+```{python}
+import pandas as pd
+url4 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1274/datasets/eyes.csv'
+eyes = pd.read_csv(url4,sep=',')
+```
+
+*** =sample_code
+```{python}
+#import pandas
+import pandas as pd
+
+# Melt the `black`, `blue` and `brown` columns of `eyes` and save it to `eyes_tidy`
+eyes_tidy = 
+
+# Rename the `variable` column
+
+
+# print out eyes_tidy
+print(eyes_tidy)
+
+```
+
+*** =solution
+```{python}
+import pandas as pd
+
+# Melt the `black`, `blue` and `brown` columns of `eyes` and save it to `eyes_tidy`
+eyes_tidy = pd.melt(eyes, id_vars = ['Name'])
+
+# Rename the `variable` column
+eyes_tidy.rename(columns = {'variable':'Eye Color'}, inplace = True)
+
+# print out eye_color_tidy
+print(eyes_tidy)
+
+```
+
+*** =sct
+```{python}
+test_import("pandas")
+test_data_frame("eyes_tidy", columns = ["Name", "Eye Color", "value"])
+success_msg("Great job!")
+```
+
+--- type:NormalExercise lang:python xp:100 skills:1 key:99639b8387
+## Further Cleaning
+
+What did you notice? Why the three columns melt into one, the dataset still has some problems. First of all, when we know Elizabeth has brown eyes, it's redundant to keep record that she doesn't have blue or black eyes. Therefore, what we waht to do is to get rid of all rows whose value in the `value` column is 0. It is very easy to do so in pandas, just use the following command:
+
+`df = df[df.column == value]`
+
+where `column` is the name of the column we are examining and `value` is the value we want to keep. This step will give us one row for each girl that tells us only her correct eye color. Now the `value` column is no longer necessary and let's delete it:
+
+`df.drop(['column1', 'column2'...])`
+
+This command does exactly what we want.
+
+
+*** =instructions
+- Filter the dataset to keep only the rows where `value` is 1 
+- Delete the `value` column
+
+*** =hint
+Take a closer look at the syntax of the two commands!
+
+*** =pre_exercise_code
+```{python}
+import pandas as pd
+url4 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1274/datasets/eyes.csv'
+eyes = pd.read_csv(url4,sep=',')
+eyes_tidy = pd.melt(eyes, id_vars = ['Name'])
+eyes_tidy.rename(columns = {'variable':'Eye Color'}, inplace = True)
+```
+
+*** =sample_code
+```{python}
+#import pandas
+import pandas as pd
+
+# Filter eye_color_tidy 
+eyes_tidy = 
+
+# Delete the `value` column
+
+
+# print eyes_tidy again
+print(eyes_tidy)
+```
+
+*** =solution
+```{python}
+import pandas as pd
+
+# Filter eyes_tidy 
+eyes_tidy = eyes_tidy[eyes_tidy.value == 1]
+
+# Delete the `value` column
+eyes_tidy.drop(['value'])
+
+# print eye_color_tidy again
+print(eyes_tidy)
+```
+
+*** =sct
+```{python}
+test_import("pandas")
+test_data_frame("eyes_tidy", columns = ["Name", "Eye Color"])
+test_object("eye_color_tidy.shape", eq_condition="equivalent")
+success_msg("Great job!")
+```
+
