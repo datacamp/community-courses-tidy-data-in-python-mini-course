@@ -31,9 +31,12 @@ What are the observations and variables in these two datasets?
 # The pre exercise code runs code to initialize the user's workspace.
 import pandas as pd
 url1 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1273/datasets/df1.csv'
+url2 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1273/datasets/df2.csv'
+url3 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1273/datasets/messy.csv'
+
 df1 = pd.read_csv(url1, sep = ',')
-#df2 = pd.read_csv('datasets/df2.csv', sep = ',')
-#messy = pd.read_csv('datasets/messy.csv', sep=',')
+#df2 = pd.read_csv(url2, sep = ',')
+#messy = pd.read_csv(url3, sep=',')
 ```
 
 *** =sct
@@ -60,7 +63,8 @@ In df2, avg\_free, avg\_reduced, and avg\_full, each representing the number of 
 *** =pre_exercise_code
 ```{python}
 import pandas as pd
-df2 = pd.read_csv('datasets/df2.csv', sep = ',')
+url2 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1273/datasets/df2.csv'
+df2 = pd.read_csv(url2, sep = ',')
 ```
 
 *** =sample_code
@@ -91,24 +95,9 @@ print(df2_tidy)
 
 *** =sct
 ```{python}
-# SCT written with pythonwhat: https://github.com/datacamp/pythonwhat/wiki
-
-test_function("numpy.unique",
-              not_called_msg = "Don't remove the call of `np.unique` to define `ints`.",
-              incorrect_msg = "Don't change the call of `np.unique` to define `ints`.")
-
-test_object("ints",
-            undefined_msg = "Don't remove the definition of the predefined `ints` object.",
-            incorrect_msg = "Don't change the definition of the predefined `ints` object.")
-
-test_import("matplotlib.pyplot", same_as = True)
-
-test_function("matplotlib.pyplot.scatter",
-              incorrect_msg = "You didn't use `plt.scatter()` correctly, have another look at the instructions.")
-
-test_function("matplotlib.pyplot.show")
-
-success_msg("Great work!")
+test_import("pandas")
+test_data_frame("df2_tidy", columns = ["year", "variable", "value"])
+success_msg("Great job!")
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:1 key:3be71779cd
