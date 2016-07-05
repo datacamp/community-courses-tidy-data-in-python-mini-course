@@ -35,8 +35,8 @@ url2 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1273/data
 url3 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1273/datasets/messy.csv'
 
 df1 = pd.read_csv(url1, sep = ',')
-#df2 = pd.read_csv(url2, sep = ',')
-#messy = pd.read_csv(url3, sep=',')
+df2 = pd.read_csv(url2, sep = ',')
+messy = pd.read_csv(url3, sep=',')
 ```
 
 *** =sct
