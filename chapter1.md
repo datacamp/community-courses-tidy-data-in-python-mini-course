@@ -280,8 +280,8 @@ Take a closer look at the syntax of the two commands!
 import pandas as pd
 url4 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1274/datasets/eyes.csv'
 eyes_tidy = pd.read_csv(url4,sep=',')
-#eyes_tidy = pd.melt(eyes, id_vars = ['Name'])
-#eyes_tidy.rename(columns = {'variable':'Eye Color'}, inplace = True)
+eyes_tidy = pd.melt(eyes, id_vars = ['Name'])
+eyes_tidy.rename(columns = {'variable':'Eye Color'}, inplace = True)
 ```
 
 *** =sample_code
@@ -307,7 +307,7 @@ import pandas as pd
 eyes_tidy = eyes_tidy[eyes_tidy.value == 1]
 
 # Delete the `value` column
-eyes_tidy.drop(['value'])
+eyes_tidy.drop('value', axis=1)
 
 # print eye_color_tidy again
 print(eyes_tidy)
