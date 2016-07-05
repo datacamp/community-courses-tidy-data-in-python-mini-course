@@ -56,6 +56,7 @@ In df2, avg\_free, avg\_reduced, and avg\_full, each representing the number of 
 *** =instructions
 - Import `pandas` as `pd`
 - Melt df2! We want to maintain the `year` column and melt all the rest.
+- Click "Submit" to print out the new dataframe
 
 *** =hint
 - `id_vars` should be `['year']`
@@ -97,7 +98,7 @@ print(df2_tidy)
 ```{python}
 test_import("pandas")
 test_data_frame("df2_tidy", columns = ["year", "variable", "value"])
-#test_function(pd.melt, args=[df2, id_vars=['year']])
+#test_function(pd.melt, args=[df2, id_vars=['year'], 3])
 success_msg("Great job!")
 ```
 
