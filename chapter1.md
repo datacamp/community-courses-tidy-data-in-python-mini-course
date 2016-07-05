@@ -184,8 +184,8 @@ eye_color = pd.read_csv(url4,sep=',')
 # SCT written with pythonwhat: https://github.com/datacamp/pythonwhat/wiki
 
 msg_bad = "That is not correct!"
-msg_success = "Exactly! The correlation is very weak though."
-test_mc(4, [msg_bad, msg_bad, msg_bad, msg_success])
+msg_success = "Exactly!"
+test_mc(1, [msg_bad, msg_bad, msg_bad, msg_success])
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:1 key:5d0f6f3efd
