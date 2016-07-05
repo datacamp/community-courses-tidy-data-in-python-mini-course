@@ -105,11 +105,11 @@ success_msg("Great job!")
 --- type:NormalExercise lang:python xp:100 skills:1 key:3be71779cd
 ## Renaming Columns
 
-Did you see how easy it was? In one command you already tidied up your dataset! Now we just need a bit further fine-tuning. Change the column names with pandas' rename function. Its syntax is `df.rename(columns = {'$column1':'column1','$column2':'column2'}, inplace = True)`, where `$column 1`, `$column 2` etc. are original column names and `column 1`, `column 2` etc. are new column names.
+Did you see how easy it was? In one command you already tidied up your dataset! Now we just need a bit further fine-tuning. Change the column names with pandas' rename function. Its syntax is `df.rename(columns = d, inplace = True)`, where `d` is a dictionary from the original names of the columns you want to change to their new names. `inplace = True` means the result would be stored in the original dataframe instead of a new one.
 
 
 *** =instructions
-- Rename the `variable` of df2_tidy to `meal plan` and `value` to `number` .
+- Rename the `variable` of df2_tidy to `meal plan` and `value` to `number`.
 - Click "Submimt Answer" to print out the new dataframe.
 
 *** =hint
