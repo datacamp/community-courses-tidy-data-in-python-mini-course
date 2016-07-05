@@ -49,9 +49,9 @@ test_mc(4, [msg_bad, msg_bad, msg_bad, msg_success])
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:1 key:431ad8bd98
-## Melt
+## Using Melt to Tidy Data
 
-In df2, avg\_free, avg\_reduced, and avg\_full, each representing the number of students that pay for a particular meal plan on an average day, are three different observations and should be in three different rows. A great tool to achieve this is the melt function in pandas package. Its basic syntax is `df.melt(df, id_vars=l)`, where df is the name of the dataframe we're dealing with and l is a list of all the columns that we want to maintain. All the other columns will be "molten" together in different rows. To get a more concrete idea, try melt yourself!
+In df2, avg\_free, avg\_reduced, and avg\_full, each representing the number of students that pay for a particular meal plan on an average day, are three different observations and should be in three different rows. A great tool to achieve this is the melt function in pandas package. Its basic syntax is `pd.melt(df, id_vars=l)`, where `df` is the name of the dataframe we're dealing with and `l` is a list of all the columns that we want to maintain. All the other columns will be "molten" together in different rows. To get a more concrete idea, try melt yourself!
 
 *** =instructions
 - Import `pandas` as `pd`
@@ -73,7 +73,7 @@ df2 = pd.read_csv(url2, sep = ',')
 
 
 # Melt df2 into df2_tidy
-df2_tidy = 
+df2_tidy = ____
 
 # print df2_tidy
 print(df2_tidy)
@@ -103,11 +103,10 @@ success_msg("Great job!")
 --- type:NormalExercise lang:python xp:100 skills:1 key:3be71779cd
 ## Renaming Columns
 
-Did you see how easy it was? In one command you already tidied up your dataset! Now we just need a bit more decorations. Change the column names with pandas' rename function. Its syntax is `df.rename(columns = {'$column1':'column1','$column2':'column2'}, inplace = True)`, where `$column 1`, `$column 2` etc. are original column names and `column 1`, `column 2` etc. are new column names.
+Did you see how easy it was? In one command you already tidied up your dataset! Now we just need a bit further fine-tuning. Change the column names with pandas' rename function. Its syntax is `df.rename(columns = {'$column1':'column1','$column2':'column2'}, inplace = True)`, where `$column 1`, `$column 2` etc. are original column names and `column 1`, `column 2` etc. are new column names.
 
 
 *** =instructions
-- `pandas` is already imported
 - Rename the `variable` of df2_tidy to `meal plan` and `value` to `number` 
 
 *** =hint
@@ -123,6 +122,7 @@ df2_tidy = pd.melt(df2, id_vars=['year'])
 
 *** =sample_code
 ```{python}
+#import pandas
 import pandas as pd
 
 # Rename the columns of df2_tidy
@@ -157,7 +157,7 @@ success_msg("Great job!")
 --- type:MultipleChoiceExercise lang:python xp:50 skills:1 key:d40684ea0d
 ## More messiness
 
-Great job! Now that you're familier with messy and tidy data, take a look at another dataset. Enter `eye_color` in your shell. What problem does this dataset have?
+Great job! Now that you're familier with messy and tidy data, take a look at another dataset. Exectue `eyes` in your shell. This dataset is about the eye colors of a few girls and whetehr they wear glasses. What problem does this dataset have?
 
 *** =instructions
 - It violates rule #1: there are several columns that represent the same variable
@@ -174,8 +174,8 @@ Try again!
 # You can use it to load packages, initialize datasets and draw a plot in the viewer
 
 import pandas as pd
-url4 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1274/datasets/eye_color.csv'
-eye_color = pd.read_csv(url4,sep=',')
+url4 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1274/datasets/eyes.csv'
+eyes = pd.read_csv(url4,sep=',')
 
 ```
 
@@ -200,27 +200,29 @@ The three columns, `black`, `blue`, and `brown`, essentially represent the same 
 *** =hint
 - The basic syntax for melt is `df.melt(df, id_vars=l)`
 - The basic syntax for rename is  `df.rename(columns = {'$column1':'column1','$column2':'column2'}, inplace = True)`
+- `id_vars` should be `['Name']`
 
 
 *** =pre_exercise_code
 ```{python}
 import pandas as pd
-url4 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1274/datasets/eye_color.csv'
-eye_color = pd.read_csv(url4,sep=',')
+url4 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1274/datasets/eyes.csv'
+eyes = pd.read_csv(url4,sep=',')
 ```
 
 *** =sample_code
 ```{python}
+#import pandas
 import pandas as pd
 
-# Melt the `black`, `blue` and `brown` columns of eye_color and save it to eye_color_tidy
-eye_color_tidy = 
+# Melt the `black`, `blue` and `brown` columns of `eyes` and save it to `eyes_tidy`
+eyes_tidy = 
 
 # Rename the `variable` column
 
 
-# print out eye_color_tidy
-print(eye_color_tidy)
+# print out eyes_tidy
+print(eyes_tidy)
 
 ```
 
@@ -228,21 +230,21 @@ print(eye_color_tidy)
 ```{python}
 import pandas as pd
 
-# Melt the `black`, `blue` and `brown` columns of eye_color and save it to eye_color_tidy
-eye_color_tidy = pd.melt(eye_color, id_vars = ['Name'])
+# Melt the `black`, `blue` and `brown` columns of `eyes` and save it to `eyes_tidy`
+eyes_tidy = pd.melt(eyes, id_vars = ['Name'])
 
 # Rename the `variable` column
-eye_color_tidy.rename(columns = {'variable':'Eye Color'}, inplace = True)
+eyes_tidy.rename(columns = {'variable':'Eye Color'}, inplace = True)
 
 # print out eye_color_tidy
-print(eye_color_tidy)
+print(eyes_tidy)
 
 ```
 
 *** =sct
 ```{python}
 test_import("pandas")
-test_data_frame("eye_color_tidy", columns = ["Name", "Eye Color", "value"])
+test_data_frame("eyes_tidy", columns = ["Name", "Eye Color", "value"])
 success_msg("Great job!")
 ```
 
@@ -255,7 +257,7 @@ What did you notice? Why the three columns melt into one, the dataset still has 
 
 where `column` is the name of the column we are examining and `value` is the value we want to keep. This step will give us one row for each girl that tells us only her correct eye color. Now the `value` column is no longer necessary and let's delete it:
 
-`del df['column1', 'column2'...]`
+`df.drop(['column1', 'column2'...])`
 
 This command does exactly what we want.
 
@@ -270,45 +272,45 @@ Take a closer look at the syntax of the two commands!
 *** =pre_exercise_code
 ```{python}
 import pandas as pd
-url4 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1274/datasets/eye_color.csv'
-eye_color = pd.read_csv(url4,sep=',')
-eye_color_tidy = pd.melt(eye_color, id_vars = ['Name'])
-eye_color_tidy.rename(columns = {'variable':'Eye Color'}, inplace = True)
+url4 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1274/datasets/eyes.csv'
+eyes = pd.read_csv(url4,sep=',')
+eyes_tidy = pd.melt(eyes, id_vars = ['Name'])
+eyes_tidy.rename(columns = {'variable':'Eye Color'}, inplace = True)
 ```
 
 *** =sample_code
 ```{python}
+#import pandas
 import pandas as pd
 
 # Filter eye_color_tidy 
-eye_color_tidy = 
+eyes_tidy = 
 
 # Delete the `value` column
 
 
-# print eye_color_tidy again
-print(eye_color_tidy)
+# print eyes_tidy again
+print(eyes_tidy)
 ```
 
 *** =solution
 ```{python}
 import pandas as pd
 
-# Filter eye_color_tidy 
-eye_color_tidy = eye_color_tidy[eye_color_tidy.value == 1]
+# Filter eyes_tidy 
+eyes_tidy = eyes_tidy[eyes_tidy.value == 1]
 
 # Delete the `value` column
-del eye_color_tidy['value']
+eyes_tidy.drop(['value'])
 
 # print eye_color_tidy again
-print(eye_color_tidy)
+print(eyes_tidy)
 ```
 
 *** =sct
 ```{python}
 test_import("pandas")
-test_function("del")
-test_data_frame("eye_color_tidy", columns = ["Name", "Eye Color"])
+test_data_frame("eyes_tidy", columns = ["Name", "Eye Color"])
 test_object("eye_color_tidy.shape", eq_condition="equivalent")
 success_msg("Great job!")
 ```
