@@ -123,6 +123,8 @@ df2_tidy = pd.melt(df2, id_vars=['year'])
 
 *** =sample_code
 ```{python}
+import pandas as pd
+
 # Rename the columns of df2_tidy
 
 
@@ -133,6 +135,8 @@ print(df2_tidy)
 
 *** =solution
 ```{python}
+import pandas as pd
+
 # Rename the columns of df2_tidy
 df2_tidy.rename(columns = {'variable':'lunch option','value':'people'}, inplace = True)
 
