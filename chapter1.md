@@ -152,8 +152,8 @@ print(df2_tidy)
 *** =sct
 ```{python}
 test_import("pandas")
-test_data_frame("df2_tidy", columns = ["year", "lunch option", "people"])
 test_function("df2_tidy.rename")
+test_data_frame("df2_tidy", columns = ["year", "lunch option", "people"])
 success_msg("Great job!")
 ```
 
