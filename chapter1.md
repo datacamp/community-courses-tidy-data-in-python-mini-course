@@ -97,8 +97,8 @@ print(df2_tidy)
 *** =sct
 ```{python}
 test_import("pandas")
-test_data_frame("df2_tidy", columns = ["year", "variable", "value"])
 test_function("pandas.melt")
+test_data_frame("df2_tidy", columns = ["year", "variable", "value"])
 success_msg("Great job!")
 ```
 
