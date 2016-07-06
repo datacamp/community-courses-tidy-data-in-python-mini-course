@@ -294,7 +294,7 @@ import pandas as pd
 eyes_tidy = ____
 
 # Delete the `value` column
-
+eyes_tidy = ____
 
 # print eyes_tidy again
 print(eyes_tidy)
@@ -309,7 +309,7 @@ import pandas as pd
 eyes_tidy = eyes_tidy[eyes_tidy.value == 1]
 
 # Delete the `value` column
-eyes_tidy.drop('value', axis=1)
+eyes_tidy = eyes_tidy.drop('value', axis=1)
 
 # print eye_color_tidy again
 print(eyes_tidy)
