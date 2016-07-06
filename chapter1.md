@@ -264,9 +264,9 @@ What did you notice? Why the three columns melt into one, the dataset still has 
 
 where `column` is the name of the column we are examining and `value` is the value we want to keep. This step will give us one row for each girl that tells us only her correct eye color. Now the `value` column is no longer necessary and let's delete it:
 
-`df.drop(['column1', 'column2'...])`
+`df.drop(l, axis=1)`
 
-This command does exactly what we want.
+Here `l` is a list of the columns we want to get rid of, and `axis=1` specifies that we want to drop columns instead of rows.
 
 
 *** =instructions
