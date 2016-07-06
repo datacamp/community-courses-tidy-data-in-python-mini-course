@@ -1,8 +1,8 @@
 title                : Tidy Data in Python
-author_field         : vincentlan15
-description          : This is an automatically generated demo course which will help you on your way to create an awesome DataCamp course.
-author_bio           : vincentlan15 is an awesome DataCamp course creator.<br>You can say something about yourself <strong>here</strong>.
+author_field         : vincent Lan
+description          : Not all the data online are sorted in a clean and organized fashion easy to process. As a data scientist, you need to know what are the standards for tidy data and how to create tidy datasets from messy ones. This mini-course will teach you how.
+author_bio           : Vincent Lan is a Statistics student at Harvard University and a course developer at Datacamp.
 university           : DataCamp
 difficulty_level     : 2
-time_needed          : 1 hour
+time_needed          : 0.5 hour
 programming_language : python
