@@ -206,7 +206,7 @@ The three columns, `black`, `blue`, and `brown`, essentially represent the same 
 *** =hint
 - The basic syntax for melt is `df.melt(df, id_vars=l)`
 - The basic syntax for rename is  `df.rename(columns = {'$column1':'column1','$column2':'column2'}, inplace = True)`
-- `id_vars` should be `['Name']`
+- `id_vars` should be `['Name', 'Wear_Glasses']`
 
 
 *** =pre_exercise_code
@@ -238,7 +238,7 @@ print(eyes_tidy)
 import pandas as pd
 
 # Melt the black, blue, and brown columns of eyes and save it to new dataframe: eyes_tidy
-eyes_tidy = pd.melt(eyes, id_vars=['Name'])
+eyes_tidy = pd.melt(eyes, id_vars=['Name', 'Wear_Glasses'])
 
 # Rename the `variable` column
 eyes_tidy.rename(columns={'variable': 'Eye Color'}, inplace=True)
@@ -251,7 +251,7 @@ print(eyes_tidy)
 *** =sct
 ```{python}
 test_import("pandas")
-test_data_frame("eyes_tidy", columns = ["Name", "Eye Color", "value"])
+test_data_frame("eyes_tidy", columns = ["Name", "Wear_Glasses","Eye Color", "value"])
 success_msg("Great job!")
 ```
 
@@ -281,7 +281,7 @@ Take a closer look at the syntax of the two commands!
 import pandas as pd
 url4 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1274/datasets/eyes.csv'
 eyes = pd.read_csv(url4,sep=',')
-eyes_tidy = pd.melt(eyes, id_vars = ['Name'])
+eyes_tidy = pd.melt(eyes, id_vars = ['Name', 'Wear_Glasses'])
 eyes_tidy.rename(columns = {'variable':'Eye Color'}, inplace = True)
 ```
 
