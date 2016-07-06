@@ -196,7 +196,7 @@ test_mc(1, [msg_success, msg_bad, msg_bad, msg_bad])
 --- type:NormalExercise lang:python xp:100 skills:1 key:5d0f6f3efd
 ## Deal with it!
 
-The three columns, `black`, `blue`, and `brown`, essentially represent the same variable: eye color. It would make much more sense to merge them into one column. Use melt to do it!
+The three columns, `Black`, `Blue`, and `Brown`, essentially represent the same variable: eye color. It would make much more sense to merge them into one column. Use melt to do it!
 
 *** =instructions
 - Melt `black`, `blue`, and `brown` into one column
@@ -221,7 +221,7 @@ eyes = pd.read_csv(url4,sep=',')
 # Import pandas
 import pandas as pd
 
-# Melt the black, blue, and brown columns of eyes and save it to new dataframe: eyes_tidy
+# Melt the Black, Blue, and Brown columns of eyes and save it to new dataframe: eyes_tidy
 eyes_tidy = ____
 
 # Rename the `variable` column
@@ -237,7 +237,7 @@ print(eyes_tidy)
 # Import pandas
 import pandas as pd
 
-# Melt the black, blue, and brown columns of eyes and save it to new dataframe: eyes_tidy
+# Melt the Black, Blue, and Brown columns of eyes and save it to new dataframe: eyes_tidy
 eyes_tidy = pd.melt(eyes, id_vars=['Name', 'Wear_Glasses'])
 
 # Rename the `variable` column
