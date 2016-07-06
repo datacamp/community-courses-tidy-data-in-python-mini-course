@@ -318,7 +318,7 @@ print(eyes_tidy)
 *** =sct
 ```{python}
 test_import("pandas")
-test_function("eye_tidy.drop")
+test_function("pandas.drop")
 test_data_frame("eyes_tidy", columns = ["Name", "Eye Color"])
 #test_object("eyes_tidy.shape")
 success_msg("Great job!")
