@@ -1,6 +1,6 @@
 ---
 title       : Tidy Data in Python
-description : It is often said that data scientists spend only 20% of their time analyzing their data, and 80% of time cleaning it. Indeed, maintaining a tidy, easy-to-use dataset is crucial in our age of big data. In Tidy Data, veteran statistician Hadley Wickham gives standards of tidy and messy data so that all data scientists can keep their work organized. In this mini-course, you'll learn to transform messy datasets to tidy datasets using the pandas package in python. Let's get started!
+description : It is often said that data scientists spend only 20% of their time analyzing their data, and 80% of time cleaning it. Indeed, maintaining a tidy, easy-to-use dataset is crucial in our age of big data. In the paper Tidy Data, veteran statistician Hadley Wickham gives definitions of tidy and messy data so that all data scientists can keep their work organized. In this mini-course, you'll learn to transform messy datasets to tidy datasets using the pandas package in python. Let's get started!
 
 attachments :
 
