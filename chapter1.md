@@ -201,6 +201,7 @@ The three columns, `black`, `blue`, and `brown`, essentially represent the same 
 *** =instructions
 - Melt `black`, `blue`, and `brown` into one column
 - Rename the `variable` column to `Eye Color`
+- Hit "Submit Answer" to print out the resulting dataframe
 
 *** =hint
 - The basic syntax for melt is `df.melt(df, id_vars=l)`
