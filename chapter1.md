@@ -199,7 +199,7 @@ test_mc(1, [msg_success, msg_bad, msg_bad, msg_bad])
 The three columns, `Black`, `Blue`, and `Brown`, essentially represent the same variable: eye color. It would make much more sense to merge them into one column. Use melt to do it!
 
 *** =instructions
-- Melt `black`, `blue`, and `brown` into one column
+- Use `Melt` to leave `Names` and `Wear_Glasses` intact and combine everything else
 - Rename the `variable` column to `Eye Color`
 - Hit "Submit Answer" to print out the resulting dataframe
 
