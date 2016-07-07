@@ -260,10 +260,11 @@ print(eyes_tidy)
 *** =sct
 ```{python}
 test_import("pandas")
-test_correct(
-    lambda: test_function("pandas.melt"),
-    lambda: test_object("eyes_tidy")
-)
+test_function("pandas.melt")
+#test_correct(
+#    lambda: test_function("pandas.melt"),
+#    lambda: test_object("eyes_tidy")
+#)
 success_msg("Great job!")
 ```
 
