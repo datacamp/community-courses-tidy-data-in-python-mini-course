@@ -263,7 +263,7 @@ test_correct(
     lambda: test_object("eyes_renamed"),
     lambda: test_correct(
        lambda: test_object("eyes_melted"),
-       lambda: test_function("eyes_tidy.rename")
+       lambda: test_function("eyes_melted.rename")
     )
 )
 success_msg("Great job!")
