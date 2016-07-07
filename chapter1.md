@@ -56,7 +56,7 @@ In `df2`, the years `1980`, `1981`, `1982`, and `1983` mark the years when BMI i
 *** =instructions
 - Import `pandas` using the alias `pd`.
 - Melt `df2`! We want to maintain the `Country` column and melt all the rest.
-- Click "Submit" to print out the new *tidy* DataFrame.
+- Click "Submit" to print out the new melted DataFrame.
 
 *** =hint
 - To import package x with the alias y, use the command `import x as y`.
@@ -75,11 +75,11 @@ df2 = pd.read_csv(url2, sep = ',')
 # Import pandas as pd
 
 
-# Melt df2 into new dataframe: df2_tidy
-df2_tidy = ____
+# Melt df2 into new dataframe: df2_melted
+df2_melted = ____
 
-# print df2_tidy
-print(df2_tidy)
+# print df2_melted
+print(df2_melted)
 
 ```
 
@@ -89,10 +89,10 @@ print(df2_tidy)
 import pandas as pd
 
 # Melt df2 into new dataframe: df2_tidy
-df2_tidy = pd.melt(df2, id_vars=['Country'])
+df2_melted = pd.melt(df2, id_vars=['Country'])
 
-# print df2_tidy
-print(df2_tidy)
+# print df2_melted
+print(df2_melted)
 
 ```
 
@@ -100,7 +100,7 @@ print(df2_tidy)
 ```{python}
 test_import("pandas")
 test_correct(
-    lambda: test_object("df2_tidy"),
+    lambda: test_object("df2_melted"),
     lambda: test_function("pandas.melt")
 )
 success_msg("Great job!")
@@ -109,7 +109,7 @@ success_msg("Great job!")
 --- type:NormalExercise lang:python xp:100 skills:1 key:3be71779cd
 ## Renaming Columns
 
-Did you see how easy it was? In one command you already tidied up your dataset! Now we just need a bit further fine-tuning. Change the column names with pandas' rename function. Its syntax is `df.rename(columns = d, inplace = True)`, where `d` is a dictionary where the keys are the columns you want to change, and the values are the new names for these columns. The code `inplace = True` means the result would be stored in the original DataFrame instead of a new one.
+Did you see how easy it was? In one command you already tidied up your dataset! Now we just need a bit further fine-tuning. Change the column names with pandas' rename function. Its syntax is `df.rename(columns = d, inplace = Flase)`, where `d` is a dictionary where the keys are the columns you want to change, and the values are the new names for these columns. The code `inplace = Flase` means the result would be stored in a new DataFrame instead of the original one.
 
 
 *** =instructions
@@ -126,7 +126,7 @@ Did you see how easy it was? In one command you already tidied up your dataset! 
 import pandas as pd
 url2 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1273/datasets/df2.csv'
 df2 = pd.read_csv(url2, sep = ',')
-df2_tidy = pd.melt(df2, id_vars=['Country'])
+df2_melted = pd.melt(df2, id_vars=['Country'])
 ```
 
 *** =sample_code
@@ -134,10 +134,10 @@ df2_tidy = pd.melt(df2, id_vars=['Country'])
 # Import pandas
 import pandas as pd
 
-# Rename the columns of df2_tidy
+# Rename the columns of df2_melted and save to a new DataFrame: df2_tidy
+df2_tidy = ____
 
-
-# Print out df2_tidy again
+# Print out df2_tidy
 print(df2_tidy)
 
 ```
@@ -147,10 +147,10 @@ print(df2_tidy)
 # Import pandas
 import pandas as pd
 
-# Rename the columns of df2_tidy
-df2_tidy.rename(columns={'variable': 'Year', 'value': 'Income'}, inplace=True)
+# Rename the columns of df2_melted and save to a new DataFrame: df2_tidy
+df2_tidy = df2_melted.rename(columns={'variable': 'Year', 'value': 'Income'}, inplace=False)
 
-# Print out df2_tidy again
+# Print out df2_tidy
 print(df2_tidy)
 ```
 
@@ -159,7 +159,7 @@ print(df2_tidy)
 test_import("pandas")
 test_correct(
     lambda: test_object("df2_tidy"),
-    lambda: test_function("df2_tidy.rename")
+    lambda: test_function("df2_melted.rename")
 )
 success_msg("Great job!")
 ```
@@ -229,14 +229,14 @@ eyes = pd.read_csv(url4,sep=',')
 # Import pandas
 import pandas as pd
 
-# Melt the Black, Blue, and Brown columns of eyes and save it to new dataframe: eyes_tidy
-eyes_tidy = ____
+# Melt the Black, Blue, and Brown columns of eyes and save it to new dataframe: eyes_melted
+eyes_melted = ____
 
-# Rename the variable column
+# Rename the variable column and save to: eyes_renamed
+eyes_renamed = ____
 
-
-# print out eye_color_tidy
-print(eyes_tidy)
+# print out eyes_renamed
+print(eyes_renamed)
 
 ```
 
@@ -245,15 +245,14 @@ print(eyes_tidy)
 # Import pandas
 import pandas as pd
 
-# Melt the Black, Blue, and Brown columns of eyes and save it to new dataframe: eyes_tidy
-eyes_tidy = pd.melt(eyes, id_vars=['Name', 'Wear_Glasses'])
+# Melt the Black, Blue, and Brown columns of eyes and save it to new dataframe: eyes_melted
+eyes_melted = pd.melt(eyes, id_vars=['Name', 'Wear_Glasses'])
 
 # Rename the `variable` column
-eyes_tidy.rename(columns={'variable': 'Eye_Color'}, inplace=True)
+eyes_renamed = eyes_melted.rename(columns={'variable': 'Eye_Color'}, inplace=True)
 
-# print out eye_color_tidy
-print(eyes_tidy)
-
+# print out eyes_renamed
+print(eyes_renamed)
 ```
 
 *** =sct
@@ -261,8 +260,11 @@ print(eyes_tidy)
 test_import("pandas")
 test_function("pandas.melt")
 test_correct(
-    lambda: test_object("eyes_tidy"),
-    lambda: test_function("eyes_tidy.rename")
+    lambda: test_object("eyes_renamed"),
+    lambda: test_correct(
+       lambda: test_object("eyes_melted"),
+       lambda: test_function("eyes_tidy.rename")
+    )
 )
 success_msg("Great job!")
 ```
