@@ -61,6 +61,7 @@ In `df2`, the years `1980`, `1981`, `1982`, and `1983` mark the years when incom
 *** =hint
 - To import package x with the alias y, use the command `import x as y`.
 - `id_vars` should be `['Country']`.
+- You don't need to change the code we provided for you.
 
 *** =pre_exercise_code
 ```{python}
@@ -115,7 +116,7 @@ Did you see how easy it was? In one command you already tidied up your dataset! 
 
 *** =hint
 - Here `d` should be `{'variable':'Year','value':'Income'}`.
-- You don't need to change the code we provide for you.
+- You don't need to change the code we provided for you.
 
 *** =pre_exercise_code
 ```{python}
@@ -208,7 +209,7 @@ The three columns, `Black`, `Blue`, and `Brown`, essentially represent the same 
 *** =hint
 - The basic syntax for melt is `df.melt(df, id_vars=l)`. Here `l` should be `['Name', 'Wear_Glasses']`.
 - The basic syntax for rename is  `df.rename(columns = l, inplace = True)`.
-- You don't need to change the code we provide for you.
+- You don't need to change the code we provided for you.
 
 
 *** =pre_exercise_code
