@@ -161,7 +161,10 @@ print(df2_tidy)
 test_import("pandas")
 test_correct(
     lambda: test_object("df2_tidy"),
-    lambda: test_function("df2_melted.rename")
+    lambda: test_function("df2_melted.rename",     
+     not_called_msg="Make sure to call the function `df2_melted.rename()`.",
+     incorrect_msg="Did you pass the correct arguments to `df2_melted.rename()`?"
+    )
 )
 success_msg("Great job!")
 ```
@@ -265,7 +268,9 @@ test_correct(
     lambda: test_object("eyes_renamed"),
     lambda: test_correct(
        lambda: test_object("eyes_melted"),
-       lambda: test_function("eyes_melted.rename")
+       lambda: test_function("eyes_melted.rename",     
+        not_called_msg="Make sure to call the function `eyes_melted.rename()`.",
+        incorrect_msg="Did you pass the correct arguments to `eyes_melted.rename()`?")
     )
 )
 success_msg("Great job!")
@@ -339,7 +344,10 @@ test_correct(
     lambda: test_object("eyes_tidy"),
     lambda: test_correct(
        lambda: test_object("eyes_filtered"),
-       lambda: test_function("eyes_filtered.drop")
+       lambda: test_function("eyes_filtered.drop",     
+        not_called_msg="Make sure to call the function `eyes_filtered.drop()`.",
+        incorrect_msg="Did you pass the correct arguments to `eyes_filtered.drop()`?"
+       )
     )
 )
 
