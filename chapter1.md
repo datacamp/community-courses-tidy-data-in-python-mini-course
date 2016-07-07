@@ -160,6 +160,7 @@ test_correct(
     lambda: test_object("df2_tidy", columns = ["Country", "Year", "Income"]),
     lambda: test_import("pandas"),
     lambda: test_function("df2_tidy.rename")
+)
 success_msg("Great job!")
 ```
 
