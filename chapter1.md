@@ -99,8 +99,10 @@ print(df2_tidy)
 *** =sct
 ```{python}
 test_import("pandas")
-test_function("pandas.melt")
-test_data_frame("df2_tidy", columns = ["Country", "variable", "value"])
+test_correct(
+    lambda: test_data_frame("df2_tidy", columns = ["Country", "variable", "value"])
+    lambda: test_function("pandas.melt")
+)
 success_msg("Great job!")
 ```
 
