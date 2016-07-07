@@ -105,7 +105,9 @@ test_correct(
      not_called_msg="Make sure to call the function `pd.melt()`.",
      incorrect_msg="Did you pass the correct arguments to `pd.melt()`?")
 )
+test_function("print", incorrect_msg="Don't change any code we provided!")
 success_msg("Great job!")
+
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:1 key:3be71779cd
@@ -166,6 +168,7 @@ test_correct(
      incorrect_msg="Did you pass the correct arguments to `df2_melted.rename()`?"
     )
 )
+test_function("print", incorrect_msg="Don't change any code we provided!")
 success_msg("Great job!")
 ```
 
@@ -200,8 +203,8 @@ eyes = pd.read_csv(url4,sep=',')
 ```{r}
 # SCT written with pythonwhat: https://github.com/datacamp/pythonwhat/wikif
 
-msg_2 = "The columns do not represent more than one variable"
-msg_3 = "Each person is one observation and is correctly charted as one observation"
+msg_2 = "No column represents more than one variable."
+msg_3 = "Each person is one observation and is correctly charted as one observation."
 msg_success = "Exactly!"
 test_mc(1, [msg_success, msg_2, msg_3, msg_3])
 ```
@@ -253,7 +256,7 @@ import pandas as pd
 # Melt the Black, Blue, and Brown columns of eyes and save it to new dataframe: eyes_melted
 eyes_melted = pd.melt(eyes, id_vars=['Name', 'Wear_Glasses'])
 
-# Rename the `variable` column
+# Rename the variable column and save to: eyes_renamed
 eyes_renamed = eyes_melted.rename(columns={'variable': 'Eye_Color'}, inplace=False)
 
 # print out eyes_renamed
@@ -265,12 +268,16 @@ print(eyes_renamed)
 test_import("pandas")
 test_function("pandas.melt")
 test_correct(
-    lambda: test_object("eyes_renamed"),
-    lambda: test_correct(
-       lambda: test_object("eyes_melted"),
-       lambda: test_function("eyes_melted.rename",     
-        not_called_msg="Make sure to call the function `eyes_melted.rename()`.",
-        incorrect_msg="Did you pass the correct arguments to `eyes_melted.rename()`?")
+    lambda: test_object("eyes_melted"),
+    lambda: test_function("pandas.melt",
+     not_called_msg="Make sure to call the function `pd.melt()`.",
+     incorrect_msg="Did you pass the correct arguments to `pd.melt()`?")
+)
+test_correct(
+    lambda: test_object("eyes_melted"),
+    lambda: test_function("eyes_melted.rename",     
+     not_called_msg="Make sure to call the function `eyes_melted.rename()`.",
+     incorrect_msg="Did you pass the correct arguments to `eyes_melted.rename()`?")
     )
 )
 success_msg("Great job!")
@@ -340,14 +347,12 @@ print(eyes_tidy)
 *** =sct
 ```{python}
 test_import("pandas")
+test_object("eyes_filtered")
 test_correct(
     lambda: test_object("eyes_tidy"),
-    lambda: test_correct(
-       lambda: test_object("eyes_filtered"),
-       lambda: test_function("eyes_filtered.drop",     
-        not_called_msg="Make sure to call the function `eyes_filtered.drop()`.",
-        incorrect_msg="Did you pass the correct arguments to `eyes_filtered.drop()`?"
-       )
+    lambda: test_function("eyes_filtered.drop",     
+     not_called_msg="Make sure to call the function `eyes_filtered.drop()`.",
+     incorrect_msg="Did you pass the correct arguments to `eyes_filtered.drop()`?"
     )
 )
 
