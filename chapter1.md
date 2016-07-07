@@ -51,7 +51,7 @@ test_mc(4, [msg_bad, msg_bad, msg_bad, msg_success])
 --- type:NormalExercise lang:python xp:100 skills:1 key:431ad8bd98
 ## Using Melt to Tidy Data
 
-In df2, the years `1980`, `1981`, `1982`, and `1983` mark the years when income is observed. Thus, they represent three different observations and should be seperated in three rows. A great tool to achieve this is the melt function in pandas package. Its basic syntax is `pd.melt(df, id_vars=l)`, where `df` is the name of the dataframe we're dealing with and `l` is a list of all the columns that we want to keep as columns. All the other columns will be "molten" together in different rows. To get a more concrete idea, try `melt` yourself!
+In `df2`, the years `1980`, `1981`, `1982`, and `1983` mark the years when income is observed. Thus, they represent three different observations and should be seperated in three rows. A great tool to achieve this is the melt function in pandas package. Its basic syntax is `pd.melt(df, id_vars=l)`, where `df` is the name of the dataframe we're dealing with and `l` is a list of all the columns that we want to keep as columns. All the other columns will be "molten" together in different rows. To get a more concrete idea, try `melt` yourself!
 
 *** =instructions
 - Import `pandas` as `pd`.
