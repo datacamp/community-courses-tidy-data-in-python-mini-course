@@ -45,7 +45,7 @@ messy = pd.read_csv(url3, sep=',')
 msg_1 = "In df1, `dogs`, `cats`, `birds` are each a variable."
 msg_2 = "The three people represent three different observations."
 msg_3 = "Exactly! See deatailed explanation in next exercise."
-test_mc(4, [msg_bad, msg_bad, msg_bad, msg_3])
+test_mc(3, [msg_1, msg_2, msg_3])
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:1 key:431ad8bd98
