@@ -56,7 +56,7 @@ In `df2`, the years `1980`, `1981`, `1982`, and `1983` mark the years when incom
 *** =instructions
 - Import `pandas` as `pd`.
 - Melt `df2`! We want to maintain the `Country` column and melt all the rest.
-- Click "Submit" to print out the new dataframe.
+- Click "Submit" to print out the new DataFrame.
 
 *** =hint
 - `id_vars` should be `['Country']`
