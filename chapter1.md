@@ -156,11 +156,10 @@ print(df2_tidy)
 
 *** =sct
 ```{python}
+test_import("pandas"),
 test_correct(
     lambda: test_object("df2_tidy"),
-    lambda: test_correct(
-       lambda: test_import("pandas"),
-       lambda: test_function("df2_tidy.rename")
+    lambda: test_function("df2_tidy.rename")
     )
 )
 success_msg("Great job!")
