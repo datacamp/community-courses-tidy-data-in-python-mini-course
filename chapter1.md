@@ -260,7 +260,7 @@ print(eyes_tidy)
 ```{python}
 test_import("pandas")
 test_correct(
-    labmda: test_object("eyes_tidy"),
+    lambda: test_object("eyes_tidy"),
     lambda: test_or(
        lambda: test_function("pandas.melt"),
        lambda: test_function("eyes_tidy.rename")
