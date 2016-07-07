@@ -100,7 +100,7 @@ print(df2_tidy)
 ```{python}
 test_import("pandas")
 test_correct(
-    lambda: test_data_frame("df2_tidy", columns = ["Country", "variable", "value"]),
+    lambda: test_object("df2_tidy"),
     lambda: test_function("pandas.melt")
 )
 success_msg("Great job!")
@@ -156,9 +156,10 @@ print(df2_tidy)
 
 *** =sct
 ```{python}
-test_import("pandas")
-test_function("df2_tidy.rename")
-test_data_frame("df2_tidy", columns = ["Country", "Year", "Income"])
+test_correct(
+    lambda: test_object("df2_tidy", columns = ["Country", "Year", "Income"]),
+    lambda: test_import("pandas"),
+    lambda: test_function("df2_tidy.rename")
 success_msg("Great job!")
 ```
 
