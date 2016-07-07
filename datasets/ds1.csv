@@ -1,10 +1,4 @@
-owner,pet type,number
-Jason,dog,2
-Jason,cat,4
-Jason,bird,3
-Lisa,dog,7
-Lisa,cat,10
-Lisa,bird,9
-Terrence,dog,8
-Terrence,cat,5
-Terrence,bird,1
+owner,dog,cat,birdnumber
+Jason,2,4,3
+Lisa,7,10,9
+Terrence,8,5,1
