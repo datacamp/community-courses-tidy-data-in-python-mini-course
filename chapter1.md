@@ -113,7 +113,7 @@ Did you see how easy it was? In one command you already tidied up your dataset! 
 - Click "Submimt Answer" to print out the new dataframe.
 
 *** =hint
-- `columns` should be `{'variable':'Year','value':'Income'}`.
+- Here `d` should be `{'variable':'Year','value':'Income'}`.
 
 *** =pre_exercise_code
 ```{python}
