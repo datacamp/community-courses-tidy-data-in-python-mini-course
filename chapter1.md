@@ -88,7 +88,7 @@ print(df2_melted)
 # Import pandas as pd
 import pandas as pd
 
-# Melt df2 into new dataframe: df2_tidy
+# Melt df2 into new dataframe: df2_melted
 df2_melted = pd.melt(df2, id_vars=['Country'])
 
 # print df2_melted
@@ -113,8 +113,8 @@ Did you see how easy it was? In one command you already tidied up your dataset! 
 
 
 *** =instructions
-- Rename the `variable` of df2_tidy to `Year` and `value` to `Income`.
-- Click "Submit Answer" to print out the new DataFrame.
+- Rename the `variable` of df2_melted to `Year` and `value` to `Income`.
+- Click "Submit Answer" to print out the new tidy DataFrame.
 
 *** =hint
 - Here `d` should be `{'variable':'Year','value':'Income'}`.
