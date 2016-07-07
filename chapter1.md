@@ -261,9 +261,8 @@ print(eyes_tidy)
 test_import("pandas")
 test_correct(
     lambda: test_object("eyes_tidy"),
-    lambda: test_or(
-       lambda: test_function("pandas.melt"),
-       lambda: test_function("eyes_tidy.rename")
+    lambda: test_function("pandas.melt"),
+#       lambda: test_function("eyes_tidy.rename")
     )
 )
 success_msg("Great job!")
