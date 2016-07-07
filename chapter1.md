@@ -15,7 +15,7 @@ What exactly marks the difference between *tidy* data and *messy* data? It is no
 
 In this course, we'll focus on the first two rules and show you how we can use pandas to deal with datasets violating them. To get started, execute `messy` in the IPython shell. This dataset, which appears in Wickham's paper, shows the number of people who choose either of two treatments in a hospital. Observe its struture in comparison with Wickham's rules. This dataset is *messy* because it violates rule #2: it combines Treatment A and Treatment B, two distinct observations, in a single row. 
 
-Now let's look at two more datasets. Execute `df1` and `df2` in your IPython shell to check out two other preloaded datasets. The former shows the type and number of pets owneed by three co-workers, and the latter shows the incomes of three countries over the years. Which one of them is messy, and why?
+Now let's look at two more datasets. Execute `df1` and `df2` in your IPython shell to check out two other preloaded datasets, both featured in datacamp's "Cleaning Data in R" course. The former shows the type and number of pets owneed by three co-workers, and the latter shows the incomes of three countries over the years. Which one of them is messy, and why?
 
 *** =instructions
 - df1 is messy because it violates rule #1
