@@ -280,6 +280,7 @@ test_correct(
      incorrect_msg="Did you pass the correct arguments to `eyes_melted.rename()`?"
     )
 )
+test_function("print", incorrect_msg="Don't change any code we provided!")
 success_msg("Great job!")
 ```
 
@@ -355,7 +356,7 @@ test_correct(
      incorrect_msg="Did you pass the correct arguments to `eyes_filtered.drop()`?"
     )
 )
-
+test_function("print", incorrect_msg="Don't change any code we provided!")
 success_msg("Great job!")
 ```
 
