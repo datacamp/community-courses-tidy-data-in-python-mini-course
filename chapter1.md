@@ -42,9 +42,9 @@ messy = pd.read_csv(url3, sep=',')
 ```{r}
 # SCT written with pythonwhat: https://github.com/datacamp/pythonwhat/wiki
 
-msg_1 = "In `df1`, `dogs`, `cats`, `birds` are each a variable."
-msg_2 = "The three people in `df1` represent three different observations."
-msg_3 = "Exactly! See deatailed explanation in next exercise."
+msg_1 = "In `df1`, `dogs`, `cats`, `birds` are each a variable so it does not violate rule #1."
+msg_2 = "The three people in `df1` represent three different observations so it does not violate rule #1."
+msg_3 = "Exactly! See detailed explanation in next exercise."
 test_mc(3, [msg_1, msg_2, msg_3])
 ```
 
@@ -101,7 +101,9 @@ print(df2_melted)
 test_import("pandas")
 test_correct(
     lambda: test_object("df2_melted"),
-    lambda: test_function("pandas.melt")
+    lambda: test_function("pandas.melt",
+     not_called_msg="Make sure to call the function `pd.melt()`.",
+     incorrect_msg="Did you pass the correct arguments to `pd.melt()`?")
 )
 success_msg("Great job!")
 ```
