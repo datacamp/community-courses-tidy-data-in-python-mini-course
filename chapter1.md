@@ -277,7 +277,7 @@ test_correct(
     lambda: test_object("eyes_melted"),
     lambda: test_function("eyes_melted.rename",     
      not_called_msg="Make sure to call the function `eyes_melted.rename()`.",
-     incorrect_msg="Did you pass the correct arguments to `eyes_melted.rename()`?")
+     incorrect_msg="Did you pass the correct arguments to `eyes_melted.rename()`?"
     )
 )
 success_msg("Great job!")
