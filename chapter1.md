@@ -337,7 +337,7 @@ test_correct(
     lambda: test_object("eyes_tidy"),
     lambda: test_correct(
        lambda: test_object("eyes_filtered"),
-       lambda: test_function("eyes_tidy.drop")
+       lambda: test_function("eyes_filtered.drop")
     )
 )
 
