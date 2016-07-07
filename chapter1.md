@@ -260,11 +260,10 @@ print(eyes_tidy)
 ```{python}
 test_import("pandas")
 test_function("pandas.melt")
-test_object("eyes_tidy")
-#test_correct(
-#    lambda: test_function("pandas.melt"),
-#    lambda: test_object("eyes_tidy")
-#)
+test_correct(
+    lambda: test_object("eyes_tidy")
+    lambda: test_function("eyes_tidy.rename"),
+)
 success_msg("Great job!")
 ```
 
