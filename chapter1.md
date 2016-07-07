@@ -100,8 +100,8 @@ print(df2_tidy)
 ```{python}
 test_import("pandas")
 test_correct(
-    lambda: test_function("pandas.melt"),
-    lambda: test_data_frame("df2_tidy", columns = ["Country", "variable", "value"])
+    lambda: test_data_frame("df2_tidy", columns = ["Country", "variable", "value"]),
+    lambda: test_function("pandas.melt")
 )
 success_msg("Great job!")
 ```
