@@ -274,7 +274,7 @@ success_msg("Great job!")
 
 What did you notice? While the three columns melt into one, the dataset still has some problems. First of all, when we know Elizabeth has brown eyes, it's redundant to keep record that she doesn't have blue or black eyes. Therefore, what we want to do is to get rid of all rows whose value in the `value` column is 0. It is very easy to do so in pandas, just use the following command:
 
-`df = df[df.column == value]`
+`df1 = df2[df2.column == value]`
 
 where `column` is the name of the column we are examining and `value` is the value we want to keep. This step will give us one row for each girl that tells us only her correct eye color. Now the `value` column is no longer necessary and let's delete it:
 
@@ -296,8 +296,8 @@ Here `l` is a list of the columns we want to get rid of, and `axis=1` specifies 
 import pandas as pd
 url4 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1273/datasets/eyes.csv'
 eyes = pd.read_csv(url4,sep=',')
-eyes_tidy = pd.melt(eyes, id_vars = ['Name', 'Wear_Glasses'])
-eyes_tidy.rename(columns = {'variable':'Eye_Color'}, inplace = True)
+eyes_renamed = pd.melt(eyes, id_vars = ['Name', 'Wear_Glasses'])
+eyes_renamed.rename(columns = {'variable':'Eye_Color'}, inplace = True)
 ```
 
 *** =sample_code
@@ -305,13 +305,13 @@ eyes_tidy.rename(columns = {'variable':'Eye_Color'}, inplace = True)
 #import pandas
 import pandas as pd
 
-# Filter eye_color_tidy 
+# Filter eyes_ranamed and save to: eyes_filtered 
 eyes_tidy = ____
 
-# Delete the `value` column
+# Delete the `value` column and save to: eyes_tidy
 eyes_tidy = ____
 
-# print eyes_tidy again
+# print eyes_tidy
 print(eyes_tidy)
 ```
 
@@ -320,11 +320,11 @@ print(eyes_tidy)
 #import pandas
 import pandas as pd
 
-# Filter eyes_tidy 
-eyes_tidy = eyes_tidy[eyes_tidy.value == 1]
+# Filter eyes_ranamed and save to: eyes_filtered 
+eyes_filtered = eyes_renamed[eyes_renamed.value == 1]
 
-# Delete the `value` column
-eyes_tidy = eyes_tidy.drop(['value'], axis=1)
+# Delete the `value` column and save to: eyes_tidy
+eyes_tidy = eyes_filtered.drop(['value'], axis=1)
 
 # print eye_color_tidy again
 print(eyes_tidy)
@@ -335,7 +335,10 @@ print(eyes_tidy)
 test_import("pandas")
 test_correct(
     lambda: test_object("eyes_tidy"),
-    lambda: test_function("eyes_tidy.drop")
+    lambda: test_correct(
+       lambda: test_object("eyes_filtered"),
+       lambda: test_function("eyes_tidy.drop")
+    )
 )
 
 success_msg("Great job!")
