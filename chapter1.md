@@ -18,10 +18,10 @@ In this course, we'll focus on the first two rules and show you how we can use p
 Now let's look at two more datasets. Execute `df1` and `df2` in your IPython shell to check out two other preloaded datasets, both featured in datacamp's "Cleaning Data in R" course. The former shows the type and number of pets owneed by three co-workers, and the latter shows the incomes of three countries over the years. Which one of them is messy, and why?
 
 *** =instructions
-- df1 is messy because it violates rule #1
-- df1 is messy because it violates rule #2
-- df2 is messy because it violates rule #1
-- df2 is messy because it violates rule #2
+- df1 is messy because it violates rule #1.
+- df1 is messy because it violates rule #2.
+- df2 is messy because it violates rule #1.
+- df2 is messy because it violates rule #2.
  
 *** =hint
 What are the observations and variables in these two datasets?
@@ -54,12 +54,13 @@ test_mc(4, [msg_bad, msg_bad, msg_bad, msg_success])
 In `df2`, the years `1980`, `1981`, `1982`, and `1983` mark the years when income is observed. Thus, they represent three different observations and should be seperated in three rows. A great tool to achieve this is the melt function in pandas package. Its basic syntax is `pd.melt(df, id_vars=l)`, where `df` is the name of the dataframe we're dealing with and `l` is a list of all the columns that we want to keep as columns. All the other columns will be "molten" together in different rows. To get a more concrete idea, try `melt` yourself!
 
 *** =instructions
-- Import `pandas` as `pd`.
+- Import `pandas` using the alias `pd`.
 - Melt `df2`! We want to maintain the `Country` column and melt all the rest.
 - Click "Submit" to print out the new DataFrame.
 
 *** =hint
-- `id_vars` should be `['Country']`
+- To import package x with the alias y, use the command `import x as y`.
+- `id_vars` should be `['Country']`.
 
 *** =pre_exercise_code
 ```{python}
@@ -114,6 +115,7 @@ Did you see how easy it was? In one command you already tidied up your dataset! 
 
 *** =hint
 - Here `d` should be `{'variable':'Year','value':'Income'}`.
+- You don't need to change the code we provide for you.
 
 *** =pre_exercise_code
 ```{python}
@@ -206,6 +208,7 @@ The three columns, `Black`, `Blue`, and `Brown`, essentially represent the same 
 *** =hint
 - The basic syntax for melt is `df.melt(df, id_vars=l)`. Here `l` should be `['Name', 'Wear_Glasses']`.
 - The basic syntax for rename is  `df.rename(columns = l, inplace = True)`.
+- You don't need to change the code we provide for you.
 
 
 *** =pre_exercise_code
