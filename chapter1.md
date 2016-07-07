@@ -55,11 +55,11 @@ In `df2`, the years `1980`, `1981`, `1982`, and `1983` mark the years when incom
 
 *** =instructions
 - Import `pandas` as `pd`.
-- Melt df2! We want to maintain the `year` column and melt all the rest.
+- Melt `df2`! We want to maintain the `Country` column and melt all the rest.
 - Click "Submit" to print out the new dataframe.
 
 *** =hint
-- `id_vars` should be `['year']`
+- `id_vars` should be `['Country']`
 
 *** =pre_exercise_code
 ```{python}
@@ -87,7 +87,7 @@ print(df2_tidy)
 import pandas as pd
 
 # Melt df2 into new dataframe: df2_tidy
-df2_tidy = pd.melt(df2, id_vars=['year'])
+df2_tidy = pd.melt(df2, id_vars=['Country'])
 
 # print df2_tidy
 print(df2_tidy)
@@ -98,7 +98,7 @@ print(df2_tidy)
 ```{python}
 test_import("pandas")
 test_function("pandas.melt")
-test_data_frame("df2_tidy", columns = ["year", "variable", "value"])
+test_data_frame("df2_tidy", columns = ["Country", "variable", "value"])
 success_msg("Great job!")
 ```
 
@@ -109,11 +109,11 @@ Did you see how easy it was? In one command you already tidied up your dataset! 
 
 
 *** =instructions
-- Rename the `variable` of df2_tidy to `meal plan` and `value` to `number`.
+- Rename the `variable` of df2_tidy to `Year` and `value` to `Income`.
 - Click "Submimt Answer" to print out the new dataframe.
 
 *** =hint
-- `columns` should be `{'variable':'meal plan','value':'number'}`
+- `columns` should be `{'variable':'Year','value':'Income'}`
 
 *** =pre_exercise_code
 ```{python}
@@ -121,7 +121,7 @@ Did you see how easy it was? In one command you already tidied up your dataset! 
 import pandas as pd
 url2 = 'https://s3.amazonaws.com/assets.datacamp.com/production/course_1273/datasets/df2.csv'
 df2 = pd.read_csv(url2, sep = ',')
-df2_tidy = pd.melt(df2, id_vars=['year'])
+df2_tidy = pd.melt(df2, id_vars=['Country'])
 ```
 
 *** =sample_code
@@ -143,7 +143,7 @@ print(df2_tidy)
 import pandas as pd
 
 # Rename the columns of df2_tidy
-df2_tidy.rename(columns={'variable': 'lunch option', 'value': 'people'}, inplace=True)
+df2_tidy.rename(columns={'variable': 'Year', 'value': 'Income'}, inplace=True)
 
 # Print out df2_tidy again
 print(df2_tidy)
@@ -153,7 +153,7 @@ print(df2_tidy)
 ```{python}
 test_import("pandas")
 test_function("df2_tidy.rename")
-test_data_frame("df2_tidy", columns = ["year", "lunch option", "people"])
+test_data_frame("df2_tidy", columns = ["Country", "Year", "Income"])
 success_msg("Great job!")
 ```
 
