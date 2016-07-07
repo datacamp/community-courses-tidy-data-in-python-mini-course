@@ -20,7 +20,6 @@ Now let's look at two more datasets. Execute `df1` and `df2` in your IPython she
 *** =instructions
 - df1 is messy because it violates rule #1.
 - df1 is messy because it violates rule #2.
-- df2 is messy because it violates rule #1.
 - df2 is messy because it violates rule #2.
  
 *** =hint
@@ -43,9 +42,10 @@ messy = pd.read_csv(url3, sep=',')
 ```{r}
 # SCT written with pythonwhat: https://github.com/datacamp/pythonwhat/wiki
 
-msg_bad = "What are the variables in each chart do the columns precisely represent them? What does an observation consist of in each chart and does a row represent one and only one observation?"
-msg_success = "Exactly!"
-test_mc(4, [msg_bad, msg_bad, msg_bad, msg_success])
+msg_1 = "In df1, `dogs`, `cats`, `birds` are each a variable."
+msg_2 = "The three people represent three different observations."
+msg_3 = "Exactly! See deatailed explanation in next exercise."
+test_mc(4, [msg_bad, msg_bad, msg_bad, msg_3])
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:1 key:431ad8bd98
