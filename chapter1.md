@@ -1,21 +1,21 @@
 ---
 title       : Tidy Data in Python
-description : It is often said that data scientists spend only 20% of their time analyzing their data, and 80% of time cleaning it. Indeed, maintaining a tidy, easy-to-use dataset is crucial in our age of big data. In the paper Tidy Data, veteran statistician Hadley Wickham gives definitions of tidy and messy data so that all data scientists can keep their work organized. In this mini-course, you'll learn to transform messy datasets to tidy datasets using the pandas package in python. Let's get started!
+description : It is often said that data scientists spend only 20% of their time analyzing their data, and 80% of time cleaning it. Indeed, maintaining a tidy, easy-to-use dataset is crucial in our age of big data. In the paper [Tidy Data](https://www.jstatsoft.org/article/view/v059i10), veteran statistician Hadley Wickham gives definitions of tidy and messy data so that all data scientists can keep their work organized. In this mini-course, you'll learn to transform messy datasets to tidy datasets using the pandas package in python. Let's get started!
 
 attachments :
 
 --- type:MultipleChoiceExercise lang:python xp:50 skills:1 key:7ad68bd87f
 ## Tidy Data and Messy Data
 
-What exactly marks the difference between tidy data and messy data? It is not only how organized and intuitive the datasets look in our human eyes, but also how easily and efficiently they can be processed by computers. In Tidy Data, Hadley Wickham proposed three standards for tidy data:
+What exactly marks the difference between *tidy* data and *messy* data? It is not only how organized and intuitive the datasets look in our human eyes, but also how easily and efficiently they can be processed by computers. In his seminal paper [Tidy Data](https://www.jstatsoft.org/article/view/v059i10), Hadley Wickham proposed three standards for tidy data:
 
 1. Each variable forms a column
 2. Each observation forms a row
 3. Each type of observation forms a unit
 
-In this course, we'll focus on the first two rules and show you how we can use pandas to deal with datasets violating them. To get started, execute `messy` in the IPython shell. This dataset, cited in Wickham's paper, shows the number of people who choose either of two treatments in a hospital. Observe its struture in comparison with Wickham's rules. This dataset is messy because it violates rule #2: it combines Treatment A and Treatment B, two distinct observations, in a single row. 
+In this course, we'll focus on the first two rules and show you how we can use pandas to deal with datasets violating them. To get started, execute `messy` in the IPython shell. This dataset, which appears in Wickham's paper, shows the number of people who choose either of two treatments in a hospital. Observe its struture in comparison with Wickham's rules. This dataset is *messy* because it violates rule #2: it combines Treatment A and Treatment B, two distinct observations, in a single row. 
 
-Now let's look at two more datasets. Enter "df1" and "df2" in your shell to check out two other preloaded datasets. The former shows the type and number of pets owneed by several co-workers, and the latter shows the number of students who choose a particular meal plan at a school. Which one of them is messy, and why?
+Now let's look at two more datasets. Execute `df1` and `df2` in your IPython shell to check out two other preloaded datasets. The former shows the type and number of pets owneed by several co-workers, and the latter shows the number of students who choose a particular meal plan at a school. Which one of them is messy, and why?
 
 *** =instructions
 - df1 is messy because it violates rule #1
@@ -51,7 +51,7 @@ test_mc(4, [msg_bad, msg_bad, msg_bad, msg_success])
 --- type:NormalExercise lang:python xp:100 skills:1 key:431ad8bd98
 ## Using Melt to Tidy Data
 
-In df2, avg\_free, avg\_reduced, and avg\_full, each representing the number of students that pay for a particular meal plan on an average day, are three different observations and should be in three different rows. A great tool to achieve this is the melt function in pandas package. Its basic syntax is `pd.melt(df, id_vars=l)`, where `df` is the name of the dataframe we're dealing with and `l` is a list of all the columns that we want to maintain. All the other columns will be "molten" together in different rows. To get a more concrete idea, try melt yourself!
+In df2, the columns avg\_free, avg\_reduced, and avg\_full, each represent the number of students that pay for a particular meal plan on an average day. These columns are three different observations and should be in three different rows. A great tool to achieve this is the melt function in pandas package. Its basic syntax is `pd.melt(df, id_vars=l)`, where `df` is the name of the dataframe we're dealing with and `l` is a list of all the columns that we want to keep as columns. All the other columns will be "molten" together in different rows. To get a more concrete idea, try `melt` yourself!
 
 *** =instructions
 - Import `pandas` as `pd`.
@@ -162,13 +162,13 @@ success_msg("Great job!")
 --- type:MultipleChoiceExercise lang:python xp:50 skills:1 key:d40684ea0d
 ## More messiness
 
-Great job! Now that you're familier with messy and tidy data, take a look at another dataset. Exectue `eyes` in your shell. This dataset is about the eye colors of a few girls and whetehr they wear glasses. What problem does this dataset have?
+Great job! Now that you're familier with messy and tidy data, take a look at another dataset. Exectue `eyes` in your shell to print a dataset that featured in DataCamp's [Cleaning Data in R course](https://campus.datacamp.com/courses/cleaning-data-in-r). This dataset is about the eye colors of three women and whether they wear glasses. What problem does this dataset have?
 
 *** =instructions
-- It violates rule #1: there are several columns that represent the same variable
-- It violates rule #1: there are several variables represented in the same column
-- It violates rule #2: there are several rows that represent the same observation
-- It violates rule #2: there are several observations represented in the same row
+- It violates rule #1 of tidy data: there are several columns that represent the same variable
+- It violates rule #1 of tidy data: there are several variables represented in the same column
+- It violates rule #2 of tidy data: there are several rows that represent the same observation
+- It violates rule #2 of tidy data: there are several observations represented in the same row
 
 *** =hint
 Try again!
@@ -224,7 +224,7 @@ import pandas as pd
 # Melt the Black, Blue, and Brown columns of eyes and save it to new dataframe: eyes_tidy
 eyes_tidy = ____
 
-# Rename the `variable` column
+# Rename the variable column
 eyes_tidy.rename(columns={'variable': 'Eye Color'}, inplace=True)
 
 # print out eye_color_tidy
@@ -258,7 +258,7 @@ success_msg("Great job!")
 --- type:NormalExercise lang:python xp:100 skills:1 key:99639b8387
 ## Further Cleaning
 
-What did you notice? Why the three columns melt into one, the dataset still has some problems. First of all, when we know Elizabeth has brown eyes, it's redundant to keep record that she doesn't have blue or black eyes. Therefore, what we waht to do is to get rid of all rows whose value in the `value` column is 0. It is very easy to do so in pandas, just use the following command:
+What did you notice? While the three columns melt into one, the dataset still has some problems. First of all, when we know Elizabeth has brown eyes, it's redundant to keep record that she doesn't have blue or black eyes. Therefore, what we waht to do is to get rid of all rows whose value in the `value` column is 0. It is very easy to do so in pandas, just use the following command:
 
 `df = df[df.column == value]`
 
