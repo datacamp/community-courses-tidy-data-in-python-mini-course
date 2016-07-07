@@ -113,7 +113,7 @@ Did you see how easy it was? In one command you already tidied up your dataset! 
 - Click "Submimt Answer" to print out the new dataframe.
 
 *** =hint
-- `columns` should be `{'variable':'Year','value':'Income'}`
+- `columns` should be `{'variable':'Year','value':'Income'}`.
 
 *** =pre_exercise_code
 ```{python}
@@ -165,13 +165,13 @@ success_msg("Great job!")
 Great job! Now that you're familier with messy and tidy data, take a look at another dataset. Exectue `eyes` in your shell to print a dataset that featured in DataCamp's [Cleaning Data in R course](https://campus.datacamp.com/courses/cleaning-data-in-r). This dataset is about the eye colors of three women and whether they wear glasses. What problem does this dataset have?
 
 *** =instructions
-- It violates rule #1 of tidy data: there are several columns that represent the same variable
-- It violates rule #1 of tidy data: there are several variables represented in the same column
-- It violates rule #2 of tidy data: there are several rows that represent the same observation
-- It violates rule #2 of tidy data: there are several observations represented in the same row
+- It violates rule #1 of tidy data: there are several columns that represent the same variable.
+- It violates rule #1 of tidy data: there are several variables represented in the same column.
+- It violates rule #2 of tidy data: there are several rows that represent the same observation.
+- It violates rule #2 of tidy data: there are several observations represented in the same row.
 
 *** =hint
-Try again!
+Think about what the chart wants to show and how the columns relate to it!
 
 *** =pre_exercise_code
 ```{r}
@@ -186,9 +186,9 @@ eyes = pd.read_csv(url4,sep=',')
 
 *** =sct
 ```{r}
-# SCT written with pythonwhat: https://github.com/datacamp/pythonwhat/wiki
+# SCT written with pythonwhat: https://github.com/datacamp/pythonwhat/wikif
 
-msg_bad = "That is not correct!"
+msg_bad = "Do the columns represent different variables, or are they essentially the same thing?"
 msg_success = "Exactly!"
 test_mc(1, [msg_success, msg_bad, msg_bad, msg_bad])
 ```
@@ -199,14 +199,13 @@ test_mc(1, [msg_success, msg_bad, msg_bad, msg_bad])
 The three columns, `Black`, `Blue`, and `Brown`, essentially represent the same variable: eye color. It would make much more sense to merge them into one column. Use melt to do it!
 
 *** =instructions
-- Use `Melt` to leave `Names` and `Wear_Glasses` intact and combine everything else
-- Rename the `variable` column to `Eye Color`
-- Hit "Submit Answer" to print out the resulting dataframe
+- Use `Melt` to leave `Names` and `Wear_Glasses` intact and combine everything else.
+- Rename the `variable` column to `Eye Color`.
+- Hit "Submit Answer" to print out the resulting dataframe.
 
 *** =hint
-- The basic syntax for melt is `df.melt(df, id_vars=l)`
-- The basic syntax for rename is  `df.rename(columns = {'$column1':'column1','$column2':'column2'}, inplace = True)`
-- `id_vars` should be `['Name', 'Wear_Glasses']`
+- The basic syntax for melt is `df.melt(df, id_vars=l)`. Here `l` should be `['Name', 'Wear_Glasses']`.
+- The basic syntax for rename is  `df.rename(columns = l, inplace = True)`.
 
 
 *** =pre_exercise_code
@@ -270,11 +269,12 @@ Here `l` is a list of the columns we want to get rid of, and `axis=1` specifies 
 
 
 *** =instructions
-- Filter the dataset to keep only the rows where `value` is 1 
-- Delete the `value` column
+- Filter the dataset to keep only the rows where `value` is 1. 
+- Delete the `value` column.
 
 *** =hint
-Take a closer look at the syntax of the two commands!
+- To filter the dataset, you should have `df.column == 1`.
+- To drop the `value` column, you should have the argument `(['value'], axis=1)`.
 
 *** =pre_exercise_code
 ```{python}
@@ -309,7 +309,7 @@ import pandas as pd
 eyes_tidy = eyes_tidy[eyes_tidy.value == 1]
 
 # Delete the `value` column
-eyes_tidy = eyes_tidy.drop('value', axis=1)
+eyes_tidy = eyes_tidy.drop(['value'], axis=1)
 
 # print eye_color_tidy again
 print(eyes_tidy)
