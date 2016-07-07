@@ -306,7 +306,7 @@ eyes_renamed.rename(columns = {'variable':'Eye_Color'}, inplace = True)
 import pandas as pd
 
 # Filter eyes_ranamed and save to: eyes_filtered 
-eyes_tidy = ____
+eyes_filtered = ____
 
 # Delete the `value` column and save to: eyes_tidy
 eyes_tidy = ____
