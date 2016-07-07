@@ -195,9 +195,10 @@ eyes = pd.read_csv(url4,sep=',')
 ```{r}
 # SCT written with pythonwhat: https://github.com/datacamp/pythonwhat/wikif
 
-msg_bad = "Do the columns represent different variables, or are they essentially the same thing?"
+msg_2 = "The columns do not represent more than one variable"
+msg_3 = "Each person is one observation and is correctly charted as one observation"
 msg_success = "Exactly!"
-test_mc(1, [msg_success, msg_bad, msg_bad, msg_bad])
+test_mc(1, [msg_success, msg_2, msg_3, msg_3])
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:1 key:5d0f6f3efd
@@ -207,7 +208,7 @@ The three columns, `Black`, `Blue`, and `Brown`, essentially represent the same 
 
 *** =instructions
 - Use `Melt` to leave `Names` and `Wear_Glasses` intact and combine everything else.
-- Rename the `variable` column to `Eye Color`.
+- Rename the `variable` column to `Eye_Color`.
 - Hit "Submit Answer" to print out the resulting dataframe.
 
 *** =hint
@@ -232,7 +233,7 @@ import pandas as pd
 eyes_tidy = ____
 
 # Rename the variable column
-eyes_tidy.rename(columns={'variable': 'Eye Color'}, inplace=True)
+
 
 # print out eye_color_tidy
 print(eyes_tidy)
@@ -248,7 +249,7 @@ import pandas as pd
 eyes_tidy = pd.melt(eyes, id_vars=['Name', 'Wear_Glasses'])
 
 # Rename the `variable` column
-eyes_tidy.rename(columns={'variable': 'Eye Color'}, inplace=True)
+eyes_tidy.rename(columns={'variable': 'Eye_Color'}, inplace=True)
 
 # print out eye_color_tidy
 print(eyes_tidy)
@@ -258,7 +259,13 @@ print(eyes_tidy)
 *** =sct
 ```{python}
 test_import("pandas")
-test_data_frame("eyes_tidy", columns = ["Name", "Wear_Glasses","Eye Color", "value"])
+test_correct(
+    labmda: test_object("eyes_tidy")
+    lambda: test_or(
+       lambda: test_function(pandas.melt),
+       lambda: test_function(rename)
+    )
+)
 success_msg("Great job!")
 ```
 
