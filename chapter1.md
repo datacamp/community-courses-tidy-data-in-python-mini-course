@@ -99,11 +99,10 @@ print(df2_tidy)
 *** =sct
 ```{python}
 test_import("pandas")
-test_object("df2_tidy")
-#test_correct(
-#    lambda: test_object("df2_tidy"),
-#    lambda: test_function("pandas.melt")
-#)
+test_correct(
+    lambda: test_object("df2_tidy"),
+    lambda: test_function("pandas.melt")
+)
 success_msg("Great job!")
 ```
 
