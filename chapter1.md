@@ -102,7 +102,7 @@ test_import("pandas")
 test_correct(
     lambda: test_object("df2_melted"),
     lambda: test_function("pandas.melt",
-     not_called_msg="Make sure to call the function `pd.melt()`."),
+     not_called_msg="Make sure to call the function `pd.melt()`.",
      incorrect_msg="Did you pass the correct arguments to `pd.melt()`?")
 )
 success_msg("Great job!")
