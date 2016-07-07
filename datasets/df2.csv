@@ -1,7 +1,7 @@
-year,number_free,number_reduced,number_full
-1969,29,0,165
-1970,46,0,178
-1971,58,5,178
-1972,73,5,166
-1973,81,5,161
-1974,86,5,155
+religion,<$10k,$10-20k,$20-30k
+Agnostic,27,34,60
+Atheist,12,27,37
+Buddhist,27,21,30
+Catholic,418,617,732
+Don't know/refused,15,14,15
+Evangelical Prot,575,869,1064
