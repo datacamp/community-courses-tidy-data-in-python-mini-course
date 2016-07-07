@@ -249,7 +249,7 @@ import pandas as pd
 eyes_melted = pd.melt(eyes, id_vars=['Name', 'Wear_Glasses'])
 
 # Rename the `variable` column
-eyes_renamed = eyes_melted.rename(columns={'variable': 'Eye_Color'}, inplace=True)
+eyes_renamed = eyes_melted.rename(columns={'variable': 'Eye_Color'}, inplace=False)
 
 # print out eyes_renamed
 print(eyes_renamed)
