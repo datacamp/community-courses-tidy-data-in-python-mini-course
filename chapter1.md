@@ -7,13 +7,13 @@ attachments :
 --- type:MultipleChoiceExercise lang:python xp:50 skills:1 key:7ad68bd87f
 ## Tidy Data and Messy Data
 
-What exactly marks the difference between *tidy* data and *messy* data? It is not only how organized and intuitive the datasets look in our human eyes, but also how easily and efficiently they can be processed by computers. In his seminal paper [Tidy Data](https://www.jstatsoft.org/article/view/v059i10), Hadley Wickham proposed three standards for tidy data:
+What exactly marks the difference between *tidy* data and *messy* data? It is not only how organized and intuitive the datasets look to our human eyes, but also how easily and efficiently they can be processed by computers. In his seminal paper [Tidy Data](https://www.jstatsoft.org/article/view/v059i10), Hadley Wickham proposed three standards for tidy data:
 
 1. Each variable forms a column
 2. Each observation forms a row
 3. Each type of observation forms a unit.
 
-In this course, we'll focus on the first two rules and show you how we can use the Python package [pandas](http://pandas.pydata.org/) to deal with datasets violating them. To get started, execute `messy` in the IPython shell. This dataset, which appears in Wickham's paper, shows the number of people who choose either of two treatments in a hospital. Observe its struture in comparison with Wickham's rules. This dataset is *messy* because it violates rule #2: it combines Treatment A and Treatment B, two distinct observations, in a single row. 
+In this course, we'll focus on the first two rules and show you how we can use the Python package [pandas](http://pandas.pydata.org/) to deal with datasets violating them. To get started, execute `messy` in the IPython shell. This dataset, which appears in Wickham's paper, shows the number of people who choose either of two treatments in a hospital. Observe its structure in comparison with Wickham's rules. This dataset is *messy* because it violates rule #2: it combines Treatment A and Treatment B, two distinct observations, in a single row. 
 
 Now let's look at two more datasets. Execute `df1` and `df2` in your IPython shell to check out two other preloaded datasets, both featured in DataCamp's [*Cleaning Data in R*](https://campus.datacamp.com/courses/cleaning-data-in-r) course. The former shows the type and number of pets owned by three co-workers, and the latter shows the average BMI in three countries over several years. Which one of these datasets is messy, and why?
 
@@ -51,7 +51,7 @@ test_mc(3, [msg_1, msg_2, msg_3])
 --- type:NormalExercise lang:python xp:100 skills:1 key:431ad8bd98
 ## Using Melt to Tidy Data
 
-In `df2`, the years `1980`, `1981`, `1982`, and `1983` mark the years when BMI is observed. Thus, they represent three different observations and should be seperated in three rows. A great tool to achieve this is the melt function in the pandas package. Its basic syntax is `pd.melt(df, id_vars=l)`, where `df` is the name of the dataframe we're dealing with and `l` is a list of all the columns that we want to keep as columns. All the other columns will be "molten" together in different rows. To get a more concrete idea, try `melt` yourself to *tidy* the dataset `df2`!
+In `df2`, the years `1980`, `1981`, `1982`, and `1983` mark the years when BMI is observed. Thus, they represent three different observations and should be seperated in three rows. A great tool to achieve this is the melt function in the pandas package. Its basic syntax is `pd.melt(df, id_vars=l)`, where `df` is the name of the dataframe we're dealing with and `l` is a list of all the columns that we want to keep as columns. All the other columns will be "melted" together in different rows. To get a more concrete idea, try `melt` yourself to *tidy* the dataset `df2`!
 
 *** =instructions
 - Import `pandas` using the alias `pd`.
@@ -113,7 +113,7 @@ success_msg("Great job!")
 --- type:NormalExercise lang:python xp:100 skills:1 key:3be71779cd
 ## Renaming Columns
 
-Did you see how easy it was? In one command you already tidied up your dataset! Now we just need a bit further fine-tuning. Change the column names with pandas' rename function. Its syntax is `df.rename(columns = d, inplace = Flase)`, where `d` is a dictionary where the keys are the columns you want to change, and the values are the new names for these columns. The code `inplace = Flase` means the result would be stored in a new DataFrame instead of the original one.
+Did you see how easy that was? In one command you already tidied up your dataset! Now we just need a bit more fine-tuning. Change the column names with pandas' `rename` function. Its syntax is `df.rename(columns = d, inplace = False)`, where `d` is a dictionary whose keys are the columns you want to change, and the values are the new names for these columns. The code `inplace = False` means the result would be stored in a new DataFrame instead of the original one.
 
 
 *** =instructions
@@ -177,7 +177,7 @@ success_msg("Great job!")
 --- type:MultipleChoiceExercise lang:python xp:50 skills:1 key:d40684ea0d
 ## More messiness
 
-Great job! Now that you're familiar with messy and tidy data, take a look at another dataset. Exectue `eyes` in your shell to print a dataset that featured in DataCamp's [Cleaning Data in R course](https://campus.datacamp.com/courses/cleaning-data-in-r). This dataset is about the eye colors of three women and whether they wear glasses. What problem does this dataset have?
+Great job! Now that you're familiar with messy and tidy data, take a look at another dataset. Execute `eyes` in your shell to print a dataset that is featured in DataCamp's [Cleaning Data in R course](https://campus.datacamp.com/courses/cleaning-data-in-r). This dataset is about the eye colors of three women and whether they wear glasses. What problem does this dataset have?
 
 *** =instructions
 - It violates rule #1 of tidy data: there are several columns that represent the same variable.
@@ -212,7 +212,7 @@ test_mc(1, [msg_success, msg_2, msg_3, msg_3])
 --- type:NormalExercise lang:python xp:100 skills:1 key:5d0f6f3efd
 ## Deal with it!
 
-The three columns, `Black`, `Blue`, and `Brown`, essentially represent the same variable: eye color. It would make much more sense to merge them into one column. Use `melt` to do it!
+The three columns, `Black`, `Blue`, and `Brown`, represent values of the same variable: eye color. It would make much more sense to merge them into one column. Use `melt` to do it!
 
 *** =instructions
 - Use `Melt` to leave `Names` and `Wear_Glasses` intact and combine everything else.
@@ -295,7 +295,8 @@ where `column` is the name of the column we are examining and `value` is the val
 
 `df.drop(l, axis=1)`
 
-Here `l` is a list of the columns we want to get rid of, and `axis=1` specifies that we want to drop columns instead of rows.
+Here `l` is a list of the columns we want to get rid of, and `axis=1` specifies that we want to drop columns instead of rows
+(the default axis).
 
 
 *** =instructions
