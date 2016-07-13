@@ -113,7 +113,9 @@ success_msg("Great job!")
 --- type:NormalExercise lang:python xp:100 skills:1 key:3be71779cd
 ## Renaming Columns
 
-Did you see how easy that was? In one command you already tidied up your dataset! Now we just need a bit more fine-tuning. Change the column names with pandas' `rename` function. Its syntax is `df.rename(columns = d, inplace = False)`, where `d` is a dictionary whose keys are the columns you want to change, and the values are the new names for these columns. The code `inplace = False` means the result would be stored in a new DataFrame instead of the original one.
+Did you see how easy that was? In one command you already tidied up your dataset! Now we just need a bit more fine-tuning. Change the column names with pandas' `rename` function. Its syntax is `df.rename(columns = d, inplace = False)`, where `d` is a dictionary whose keys are the columns you want to change, and the values are the new names for these columns. The optional
+keyword `inplace = False` means the result will be stored in a new DataFrame
+instead of the original one.
 
 
 *** =instructions
