@@ -1,4 +1,4 @@
-title                : Tidy Data in Python
+title                : Tidy Data in Python Mini-Course
 author_field         : Vincent Lan
 description          : Most of the world's data are not sorted in a clean and organized fashion; nor are they easy to process. As a data scientist, you need to know what the standards for tidy data are and how to create tidy datasets from messy ones. This mini-course will prepare you for these tasks.
 author_bio           : Vincent Lan is a Statistics student at Harvard University and a course development intern at Datacamp.
