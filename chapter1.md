@@ -1,10 +1,10 @@
 ---
 title       : Tidy Data in Python
-description : It is often said that data scientists spend only 20% of their time analyzing their data, and 80% of time cleaning it. Indeed, maintaining a tidy, easy-to-use dataset is crucial in our age of big data. In the paper Tidy Data, veteran statistician Hadley Wickham gives definitions of tidy and messy data so that all data scientists can keep their work organized. In this mini-course, you'll learn to transform messy datasets to tidy datasets using the pandas package in python. Let's get started!
+description : It is often said that data scientists spend only 20% of their time analyzing their data, and 80% of time cleaning it. Indeed, maintaining a tidy, easy-to-use dataset is crucial in our age of big data. In the paper Tidy Data, veteran statistician Hadley Wickham gives definitions of tidy and messy data so that all data scientists can keep their work organized. In this mini-course, you'll learn to transform messy datasets into tidy datasets using the pandas package in python. Let's get started!
 
 attachments :
 
---- type:MultipleChoiceExercise lang:python xp:50 skills:1 key:7ad68bd87f
+--- type:MultipleChoiceExercise lang:python xp:50 skills:2 key:7ad68bd87f
 ## Tidy Data and Messy Data
 
 What exactly marks the difference between *tidy* data and *messy* data? It is not only how organized and intuitive the datasets look to our human eyes, but also how easily and efficiently they can be processed by computers. In his seminal paper [Tidy Data](https://www.jstatsoft.org/article/view/v059i10), Hadley Wickham proposed three standards for tidy data:
@@ -48,7 +48,7 @@ msg_3 = "Exactly! See detailed explanation in next exercise."
 test_mc(3, [msg_1, msg_2, msg_3])
 ```
 
---- type:NormalExercise lang:python xp:100 skills:1 key:431ad8bd98
+--- type:NormalExercise lang:python xp:100 skills:2 key:431ad8bd98
 ## Using Melt to Tidy Data
 
 In `df2`, the years `1980`, `1981`, `1982`, and `1983` mark the years when BMI is observed. Thus, they represent three different observations and should be seperated in three rows. A great tool to achieve this is the melt function in the pandas package. Its basic syntax is `pd.melt(df, id_vars = lst)`, where `df` is the name of the dataframe we're dealing with and `lst` is a list of all the columns that we want to keep as columns. All the other columns will be "melted" together in different rows. To get a more concrete idea, try `melt` yourself to *tidy* the dataset `df2`!
@@ -107,7 +107,7 @@ test_function("print", incorrect_msg="Don't change any code we provided!")
 success_msg("Great job!")
 ```
 
---- type:NormalExercise lang:python xp:100 skills:1 key:3be71779cd
+--- type:NormalExercise lang:python xp:100 skills:2 key:3be71779cd
 ## Renaming Columns
 
 See how easy that was? You tidied up your dataset with a single command! Now we just need a bit more fine-tuning. Change the column names with pandas' rename function. Its syntax is `df.rename(columns = d, inplace = False)`, where `d` is a dictionary where the keys are the columns you want to change, and the values are the new names for these columns. The code `inplace = False` means the result would be stored in a new DataFrame instead of the original one.
@@ -167,7 +167,7 @@ test_function("print", incorrect_msg="Don't change any code we provided!")
 success_msg("Great job!")
 ```
 
---- type:MultipleChoiceExercise lang:python xp:50 skills:1 key:d40684ea0d
+--- type:MultipleChoiceExercise lang:python xp:50 skills:2 key:d40684ea0d
 ## More messiness
 
 Great job! Now that you're familiar with messy and tidy data, let's take a look at another dataset. Execute `eyes` in your shell to print a dataset that was featured in DataCamp's [Cleaning Data in R course](https://campus.datacamp.com/courses/cleaning-data-in-r). This dataset is about the eye colors of three women and whether or not they wear glasses. What problem does this dataset have?
@@ -201,7 +201,7 @@ msg_success = "Exactly!"
 test_mc(1, [msg_success, msg_2, msg_3, msg_3])
 ```
 
---- type:NormalExercise lang:python xp:100 skills:1 key:5d0f6f3efd
+--- type:NormalExercise lang:python xp:100 skills:2 key:5d0f6f3efd
 ## Deal with it!
 
 In the previous exercise, the three columns--`Black`, `Blue`, and `Brown`--represent the same variable: eye color. It would make much more sense to merge them into one column. Use `melt` to do it!
@@ -274,7 +274,7 @@ test_function("print", incorrect_msg="Don't change any code we provided!")
 success_msg("Great job!")
 ```
 
---- type:NormalExercise lang:python xp:100 skills:1 key:99639b8387
+--- type:NormalExercise lang:python xp:100 skills:2 key:99639b8387
 ## Further Cleaning
 
 What did you notice in the last exercise? While the three columns melt into one, the dataset still has some problems. First of all, when we know Elizabeth has brown eyes, it's redundant to record that she doesn't have blue or black eyes. Therefore, what we want to do is to get rid of all rows whose value in the `value` column is 0. It is very easy to do this in pandas using the following command:
